@@ -1,35 +1,13 @@
-== Welcome ==
+== (KMS) TrLib ==
 
-Welcome to your wiki! This is the default page we've installed for your convenience. Go ahead and edit it.
+Welcome to this first version of the TrLib wiki. 
+Hopefully lots of useful information will eventually find its way here.
 
-=== Wiki features ===
+=== Notes on release ===
 
-This wiki uses the [[http://www.wikicreole.org/|Creole]] syntax, and is fully compatible with the 1.0 specification.
+We are preparing a release procedure. The code in the repository is NOT yet an official release version. However, the "machine room" is functioning and stable, so developers should be able to build very usable versions on their own.
 
-The wiki itself is actually a mercurial repository, which means you can clone it, edit it locally/offline, add images or any other file type, and push it back to us. It will be live immediately.
+=== Build procedures ===
 
-Go ahead and try:
+We will at some point put some build instructions here, and also at some point add buildtools (e.g. make files) to the repository.
 
-{{{
-$ hg clone https://bitbucket.org/KMS/trlib/wiki
-}}}
-
-Wiki pages are normal files, with the .wiki extension. You can edit them locally, as well as creating new ones.
-
-=== Syntax highlighting ===
-
-You can also highlight snippets of text, we use the excellent [[http://www.pygments.org/|Pygments]] library.
-
-Here's an example of some Python code:
-
-{{{
-#!python
-
-def wiki_rocks(text):
-    formatter = lambda t: "funky"+t
-    return formatter(text)
-}}}
-
-You can check out the source of this page to see how that's done, and make sure to bookmark [[http://pygments.org/docs/lexers/|the vast library of Pygment lexers]], we accept the 'short name' or the 'mimetype' of anything in there.
-
-Have fun!
