@@ -16,10 +16,10 @@ We will at some point put some build instructions here, and also at some point a
 We have been able to compile and test the code on the following systems:
 * Windows XP (Servicepack 3): MINGW (gcc 4.5.2), Visual Studio 2010
 * Windows Server 2008 (64 bit): MINGW (gcc 4.5.2), Visual Studio 2010 (cross compiled from WinXP)
-* Ubuntu 10.10 (64 bit, i686): gcc 4.4.5
-* Ubuntu 10.10 (32 bit x86_64): gcc 4.4.5
+* Ubuntu 10.10 (32 bit, i686): gcc 4.4.5
+* Ubuntu 10.10 (64 bit x86_64): gcc 4.4.5
 * SunOS (Sparc): Sun C 5.9
 
 === Tested, but not really supported ===
 
-* Mac OS X, Snow Leopard: gcc 4.2. **Only in single threaded mode**
+* Mac OS X, Snow Leopard: gcc 4.2. **Only in single threaded mode.**
