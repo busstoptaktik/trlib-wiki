@@ -9,7 +9,11 @@ We are preparing a release procedure. The code in the repository is NOT yet an o
 
 === Build procedures ===
 
-We will at some point put some build instructions here, and also at some point add buildtools (e.g. make files) to the repository.
+A makefile for linux (gcc) has been added to the root directory. Alternatively you can use [[http://www.cmake.org|cmake]] to generate makefiles or project-files specific to your system. This uses the CMakeLists.txt files in the root-dir and in the TR_SRC dir to build a shared library. For example:
+# Make a directory BUILD at the same level as trlib. Then cd to that directory.
+# Run cmake ../trlib - this will generate makefiles/project files, which defaults to whatever compiler you have on your system (Visual Studio, gcc etc.)
+# You can also specify the target compiler suite by using the -G switch: cmake -G <generator> ../trlib 
+
 
 === Supported systems ===
 
