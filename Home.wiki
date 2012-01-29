@@ -26,7 +26,7 @@ We have been able to compile and test the code on the following systems:
 
 === Tested, but not really supported ===
 
-* Mac OS X, Snow Leopard: gcc 4.2. **Only in single threaded mode.**
+* Mac OS X, Snow Leopard: gcc 4.2. **Only in single threaded mode.**, gcc 4.6 (multithreaded).
 
 === Definition files ===
 
