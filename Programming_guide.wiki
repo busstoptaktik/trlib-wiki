@@ -1,0 +1,89 @@
+== KMSTrLib Programming Guide ==
+
+A preliminary guide to programming with KMSTrLib.
+
+=== Exposed functions: ===
+
+*int TR_InitLibrary(char *path):
+
+Sets tabdir/geoid folder to input string and initialises various global resources. If the input string is empty, the function will look for input from environment variable TR_TABDIR. If the user wants to perform 3d-transformations the directory pointed to here should be a valid geoid library distributed by KMS. Returns 1 on success, 0 otherwise.
+
+* void TR_GetVersion(char *buffer, int bufferlength):  Writes version info to buffer. 
+*int TR_GetLastError(void): Returns extended error code.
+
+*int TR_GetEsriText(char *label_in, char *wkt_out): 
+Translates minilabel to ESRI-flavoured wkt. Requires file def_shp.txt in current working directory or tabdir defined in TR_InitLibrary. Works for most common minilabels.
+
+*void TR_TerminateLibrary(void): Frees various global resources. Should be called when library is shut down.
+
+*void TR_TerminateThread(void): 
+Frees various thread local resources. Should be called before exit of each thread, apart from the main thread, attached to the library.
+
+*TR *tropen (char *label_in, char *label_out, char *geoid_name): 
+Opens a transformation object – TR is an internally defined struct, which contains data relevant to a transformation between systems defined by label_in and label_out. A special geoid can be specified as third parameter – if this is given as the empty string, a standard geoid, if available, is selected by the library.
+
+*void TR_GeoidInfo(TR *tr): Prints info about current selected geoid to stdout. This behaviour will be improved in later releases.
+
+*int tr(TR *tr, double *X, double *Y, double *Z, int n): 
+Perform a transformation defined in the TR-object. Input are pointers to coordinates. Here the pointer Z can be NULL. The last parameter specifies the number of points pointed to by the input.
+
+*void trclose (TR *tr):  Close a TR-object, frees the resources allocated in the object.
+*int trstream(TR *tr, FILE *f_in, FILE *f_out, int n): Transform points from a file object.
+
+*int TR_Transform(char *label_in, char *label_out,double *X,double *Y,double *Z,int npoints): 
+This is a simple wrapper of tropen, tr and trclose.
+
+===Environment Variables:===
+*TR_TABDIR: Can be used to point to a relevant folder containing definitions files and/or geoids distributed by KMS.
+
+=== Definition files and geoid library: ===
+
+The definition file def_lab.txt is needed in order to perform any transformations. The library will, as default, look for def_lab.txt in the current directory (where a program is invoked). If def_lab.txt is not found there, knowing that the concept of “current directory” is not always well defined, the KMSTrLib will look for the definition file in the tabdir defined in TR_InitLibrary. The same procedure holds for other definition/parameter files. For example the file def_shp.txt is needed by the function TR_GetEsriText.
+If the user wants to perform 3d-transformations, involving e.g. various height systems, a proper geoid library distributed by KMS on releases should be pointed to by InitLibrary. However it is possible to do 2d-transformations without any geoid library, as long as def_lab.txt can be located.
+
+===Possible setups:===
+
+* Location of def_lab.txt , def_shp.txt,Possible transformations,Call to TR_InitLibrary
+*In geoid folder pointed to by TR_TABDIR, 2d and 3d, TR_InitLibrary(“”)
+*In geoid folder, 2d and 3d, TR_InitLibrary(path_to_folder)
+*In “current directory”, 2d, TR_InitLibrary(“”)
+*In some folder. No geoids in that folder or in “current directory”, 2d,TR_InitLibrary(path_to_folder)
+
+===Thread Safety===
+
+We have implemented thread safety by using thread local storage. After the library has been initialised by TR_InitLibrary in some thread, each new thread created can perform transformations as usual. However, TR_TerminateThread must be called by the thread before it exits. Due to a special implementation of Fehmarn transformations (defined by minilabel fcs), these are not fully thread safe and should be run by a single threaded process.
+
+
+===A simple working example:===
+
+The following example illustrates a simple usage of the library where TR_TABDIR points to a valid geoid folder:
+{{{
+#!c
+#include <stdio.h>
+#include "trlib_api.h"
+int main(void) {
+    int err;
+    double x[2]={512200.1,845200.1};
+    double y[2]={6143200.0,6099200.2};
+    double z[2]={20.0,30.0};
+    char ver[128];
+    TR *trf;
+    TR_GetVersion(ver,128);
+    printf("TrLib version %s\n",ver);
+    TR_InitLibrary("");
+    trf=tropen(“utm32Ewgs84”,”utm33Eed50”);
+    err=tr(trf,x,y,z,2);
+    trclose(trf);
+    TR_TerminateLibrary();}
+}}}
+===Maximising performance:===
+
+Since resources are allocated each time a new transformation object is opened with tropen, it is generally a good idea to keep the TR-objects around as long as they are needed. The simple wrapper TR_Transform opens and closes a new TR-object on each call. However, the performance difference should be negligible unless you are doing a lot of the same transformations right after each other.
+
+Also resources are allocated each time a new thread is attaching to the library. This implies, that it is also a good strategy to keep threads alive, for as long as they are needed.
+
+Another implementation detail is that the library performs some internal initialisation each time the transformation procedure is called with a new transformation– which means that it can also boost performance to do several transformations in a thread using the same TR-object, rather than calling with different TR-objects in a random order. In real use cases, transformation requests can of course come in in a random order. This is however a minor detail, which should be negligible in most cases.
+
+
+
+ 
