@@ -56,7 +56,7 @@ We have implemented thread safety by using thread local storage. After the libra
 
 ===A simple working example:===
 
-The following example illustrates a simple usage of the library where TR_TABDIR points to a valid geoid folder:
+The following example illustrates a simple usage of the library where TR_TABDIR points to a valid geoid folder containing definition files.
 {{{
 #!c
 #include <stdio.h>
@@ -71,7 +71,7 @@ int main(void) {
     TR_GetVersion(ver,128);
     printf("TrLib version %s\n",ver);
     TR_InitLibrary("");
-    trf=tropen(“utm32Ewgs84”,”utm33Eed50”);
+    trf=tropen(“utm32Ewgs84”,”utm33Eed50”,"");
     err=tr(trf,x,y,z,2);
     trclose(trf);
     TR_TerminateLibrary();}
