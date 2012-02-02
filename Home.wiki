@@ -3,6 +3,7 @@
 Welcome to this first version of the TrLib wiki. 
 Hopefully lots of useful information will eventually find its way here.
 
+See also the [[Programming guide|programming guide.]]
 === Notes on release ===
 
 We are preparing a release procedure. The code in the repository is NOT yet an official release version. However, the "machine room" is functioning and stable, so developers should be able to build very usable versions on their own.
