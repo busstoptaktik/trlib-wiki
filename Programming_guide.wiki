@@ -4,7 +4,12 @@ A preliminary guide to programming with KMSTrLib.
 
 === Exposed functions: ===
 
-*int TR_InitLibrary(char *path):
+*
+{{{ 
+#!c 
+int TR_InitLibrary(char *path)
+}}}:
+
 
 Sets tabdir/geoid folder to input string and initialises various global resources. If the input string is empty, the function will look for input from environment variable TR_TABDIR. If the user wants to perform 3d-transformations the directory pointed to here should be a valid geoid library distributed by KMS. Returns 1 on success, 0 otherwise.
 
@@ -51,7 +56,10 @@ If the user wants to perform 3d-transformations, involving e.g. various height s
 
 ===Thread Safety===
 
-We have implemented thread safety by using thread local storage. After the library has been initialised by TR_InitLibrary in some thread, each new thread created can perform transformations as usual. However, TR_TerminateThread must be called by the thread before it exits. Due to a special implementation of Fehmarn transformations (defined by minilabel fcs), these are not fully thread safe and should be run by a single threaded process.
+We have implemented thread safety by using thread local storage. After the library has been initialised by TR_InitLibrary in some thread, each new thread created can perform transformations as usual. TR_TerminateThread **must** be called by the thread before it exits. 
+TR-objects returned by tropen contain thread local data, and should not be shared among threads.
+
+Due to a special implementation of Fehmarn transformations (defined by minilabel fcs), these are not fully thread safe and should be run by a single threaded process. The library will return an error if requested to open a Fehmarn transformation in another thread than the one which called TR_InitLibrary succesfully.
 
 
 ===A simple working example:===
