@@ -6,7 +6,7 @@ A preliminary guide to programming with KMSTrLib.
 
 * **int TR_InitLibrary(char *path):**
 
-Sets tabdir/geoid folder to input string and initialises various global resources. If the input string is empty, the function will look for input from environment variable TR_TABDIR. If the user wants to perform 3d-transformations the directory pointed to here should be a valid geoid library distributed by KMS. Returns 1 on success, 0 otherwise.
+Sets tabdir/geoid folder to input string and initialises various global resources. If the input string is empty, the function will look for input from environment variable TR_TABDIR. If the user wants to perform 3d-transformations the directory pointed to here should be a valid geoid library distributed by KMS. Returns 1 on success, 0 otherwise. This function is not thread safe and should be called by the main thread, before other threads start doing transformations. 
 
 * **void TR_GetVersion(char *buffer, int bufferlength):**  Writes version info to buffer. 
 * **int TR_GetLastError(void):** Returns extended error code.
@@ -57,7 +57,7 @@ TR-objects returned by tropen contain thread local data, and should not be share
 Due to a special implementation of Fehmarn transformations (defined by minilabel fcs), these are not fully thread safe and should be run by a single threaded process. The library will return an error if requested to open a Fehmarn transformation in another thread than the one which called TR_InitLibrary succesfully.
 
 
-===A simple working example:===
+===Simple examples:===
 
 The following example illustrates a simple usage of the library where TR_TABDIR points to a valid geoid folder containing definition files.
 {{{
@@ -77,8 +77,36 @@ int main(void) {
     trf=tropen("utm32Ewgs84","utm33Eed50","");
     err=tr(trf,x,y,z,2);
     trclose(trf);
-    TR_TerminateLibrary();}
+    TR_TerminateLibrary();
+    return err;
+}
 }}}
+Another example: minitrans.c
+
+Transform data from file argv[3], write to file argv[4]. Input  data reference system is described by minilabel in argv[1], output data reference system is described by minilabel in argv[2].
+{{{
+#!c
+#include <stdio.h>
+#include "trlib.h"
+
+int main (int argc, char *argv[]) {
+    TR *tr;
+    FILE *in, *out;
+    int err;
+    TR_InitLibrary("");
+    tr  = tropen (argv[1], argv[2],"");
+    in  = fopen (argv[3], "rt");
+    out = fopen (argv[4], "wt");
+    err = trstream (tr, in, out, 0);
+    fclose (out);
+    fclose (in);
+    trclose (tr);
+    TR_TerminateLibrary();
+    return err;
+}
+
+}}}
+
 ===Maximising performance:===
 
 Since resources are allocated each time a new transformation object is opened with tropen, it is generally a good idea to keep the TR-objects around as long as they are needed. The simple wrapper TR_Transform opens and closes a new TR-object on each call. However, the performance difference should be negligible unless you are doing a lot of the same transformations right after each other.
