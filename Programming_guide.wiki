@@ -34,7 +34,7 @@ Perform a transformation defined in the TR-object. Input are pointers to coordin
 This is a simple wrapper of tropen, tr and trclose.
 
 ===Environment Variables:===
-* **TR_TABDIR:** Can be used to point to a relevant folder containing definitions files and/or geoids distributed by KMS.
+* **TR_TABDIR:** Can be used to point to a relevant folder containing definition files and/or geoids distributed by KMS.
 
 === Definition files and geoid library: ===
 
