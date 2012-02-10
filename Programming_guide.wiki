@@ -117,7 +117,7 @@ Another implementation detail is that the library performs some internal initial
 
 
 === Comparison to the earlier KMSTrLib API ===
-In the previous c++ api, a transformation could be performed like this:
+In the previous c++ API a transformation could be performed like this:
 {{{
 #!c
 enum KMSTR_Error e;
@@ -145,6 +145,8 @@ if (e!=TR_OK)
     printf("Error, return code was: %d\n" %e);
 }}}
 
-The projection defined in trf, can then be reused before it is finally closed with trclose.
+The projection defined in trf can then be reused before it is finally closed with trclose.
+
+A major difference between the two APIs is that the transformation functions can be called with //arrays//. In particular in a multithreaded setup this can mean a major performance boost. In the old API threads where synchronised by mutex mechanisms and were thus effectively running serially. This is not the case in the new API, where thread local storage is used. As a result, the new way of handling thread safety should be significantly faster on a multicore machine. 
 
  
