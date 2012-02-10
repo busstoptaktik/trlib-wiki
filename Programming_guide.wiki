@@ -116,5 +116,35 @@ Also resources are allocated each time a new thread is attached to the library. 
 Another implementation detail is that the library performs some internal initialisation each time the transformation procedure is called with a new transformation– which means that it can also boost performance to do several transformations in a thread using the same TR-object, rather than calling with different TR-objects in a random order. In real use cases, transformation requests can of course come in in a random order. This is however a minor detail, which should be negligible in most cases.
 
 
+=== Comparison to the earlier KMSTrLib API ===
+In the previous c++ api, a transformation could be performed like this:
+{{{
+#!c
+enum KMSTR_Error e;
+double X,Y,Z;
+e = KMSTR_Transform("utm32Hwgs84_h_dvr90","utm33Ewgs84",512200.1,6143200.1,0,&X,&Y,&Z);
+}}}
+
+This would now be:
+{{{
+#!c
+int e;
+double X=512200.1,Y=6143200.1,Z=0;
+e= TR_Transform("utm32Hwgs84_h_dvr90","utm33Ewgs84",&X,&Y,&Z,1);
+}}}
+
+However, a more efficient way - if the projection is to be reused, would be:
+
+{{{
+#!c
+int e;
+TR *trf=tropen("utm32Hwgs84_h_dvr90","utm33Ewgs84","");
+double X=512200.1,Y=6143200.1,Z=0;
+e= tr(trf,&X,&Y,&Z,1);
+if (e!=TR_OK)
+    printf("Error, return code was: %d\n" %e);
+}}}
+
+The projection defined in trf, can then be reused before it is finally closed with trclose.
 
  
