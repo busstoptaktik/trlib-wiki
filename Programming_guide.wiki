@@ -1,6 +1,7 @@
 == KMSTrLib Programming Guide ==
 
 A preliminary guide to programming with KMSTrLib.
+See also the section on [[Bindings|bindings to high level languages.]]
 
 === Exposed functions: ===
 
