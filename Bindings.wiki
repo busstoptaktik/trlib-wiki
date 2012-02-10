@@ -1,0 +1,18 @@
+== Bindings two high level languages ==
+
+Currently bindings to C#, java and python are supported.
+
+=== Design ===
+
+Common to the bindings, which are all to object oriented languages, is that a transformation is created by creating a class instance. For example in python:
+
+{{{
+#!python
+import TrLib
+TrLib.InitLibrary(my_geoid_folder)
+ct=TrLib.CoordinateTransformation("utm32Ewgs84","utm32Eed50")
+x,y,z=ct.Transform(512200.1,6143200.1,100.0)
+ct.Close()
+}}}
+
+More examples to come!
