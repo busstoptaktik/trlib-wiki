@@ -1,4 +1,4 @@
-== Bindings two high level languages ==
+== Bindings to high level languages ==
 
 Currently bindings to C#, java and python are supported.
 
@@ -17,9 +17,9 @@ ct.Close()
 
 === Java ===
 
-The java interface to TrLib uses JNI through an intermediate shared library - of course the JNI functions can also be put into the main shared library, TrLib.
+The java interface to TrLib uses JNI. The JNI-functions can be put in an intermediate shared library linked to TrLib or they can be put directly into TrLib itself.
 
-Here's an example of how to use the java bindings. First of all include the TrLib class, defined in TrLib.java, in your project:
+Here's an example of how to use the java bindings. First of all include the TrLib-class, defined in TrLib.java, in your project:
 
 {{{
 #!java
