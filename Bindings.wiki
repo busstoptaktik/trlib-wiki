@@ -15,4 +15,29 @@ x,y,z=ct.Transform(512200.1,6143200.1,100.0)
 ct.Close()
 }}}
 
-More examples to come!
+=== Java ===
+
+The java interface to TrLib uses JNI through an intermediate shared library - of course the JNI functions can also be put into the main shared library, TrLib.
+
+Here's an example of how to use the java bindings. First of all include the TrLib class, defined in TrLib.java, in your project:
+
+{{{
+#!java
+
+public class TestProgram{
+	public static void main(String args[]){
+		String version=TrLib.GetVersion();
+		System.out.println("TrLib version is: "+version);
+		TrLib.InitLibrary("");
+		TrLib.TR_Error err;
+		TrLib.CoordinateTransformation ct;
+		ct=new TrLib.CoordinateTransformation("utm32Ewgs84","utm32Eed50");
+		double X[]={5143200.1,450200.1};
+		double Y[]={6143200.1,6200000.1};
+		double Z[]={100,200};
+	        err=ct.Transform(X,Y,Z);
+                ct.Close();}
+}
+}}}
+
+ 
