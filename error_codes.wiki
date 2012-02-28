@@ -1,0 +1,33 @@
+== Return codes from transformation procedures ==
+
+From an internal header, more explanation to come:
+
+{{{
+#!c
+
+/* ERROR NUMBERS FOR TRANSFORMATIONS */
+#define  TRF_INACC_       (-1)
+#define  TRF_TOLLE_       (-2)
+#define  TRF_AREA_        (-3)
+#define  TRF_GEOID_       (-4)
+#define  TRF_ILLEG_       (-5)
+#define  TRF_PROGR_       (-6)
+#define  HTRF_ILLEG_      (-7)
+#define  TAB_C_ARE_       (-100)
+#define  TAB_C_PRJ_       (-200)
+#define  TAB_C_NON_       (-300)
+#define  TAB_G_MAX_       (-400)
+#define  TAB_N_NAM_       (-500)
+#define  TAB_R_MAN_       (-600)
+#define  TAB_N_MAN_       (-700)
+#define  TAB_N_SYS_       (-800)
+#define  PLATE_NON_       (-10000)
+#define  PLATE_OUT_       (-20000)
+#define  ITRF_NON_        (-30000)
+#define  ITRF_SEQ_        (-40000)
+#define  ITRF_DTM_        (-50000)
+#define  ITRF_MAX_        (-60000)
+#define  ITRF_NAM_        (-70000)
+#define  ITRF_SYS_        (-80000)
+#define  PLATE_NO_VEL_    (-90000)
+}}}
