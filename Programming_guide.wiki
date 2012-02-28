@@ -116,6 +116,16 @@ Also resources are allocated each time a new thread is attached to the library. 
 
 Another implementation detail is that the library performs some internal initialisation each time the transformation procedure is called with a new transformation– which means that it can also boost performance to do several transformations in a thread using the same TR-object, rather than calling with different TR-objects in a random order. In real use cases, transformation requests can of course come in in a random order. This is however a minor detail, which should be negligible in most cases.
 
+=== Return Codes ===
+
+The return codes from API functions are defined in trlib_api.h and are as follows:
+
+* TR_OK=0 , means that all is OK.
+* TR_LABEL_ERROR=1 , means that a wrong minilabel was given as input.
+* TR_ERROR=2 , means that some error happened during transformation.
+* TR_ALLOCATION_ERROR=3, means that some resource could not be opened/allocated.
+
+More detailed return error codes, if something whent wrong during a transformation, can be fetched with TR_GetLastError. See [[error_codes|error codes]].
 
 === Comparison to the earlier KMSTrLib API ===
 In the previous c++ API a transformation could be performed like this:
