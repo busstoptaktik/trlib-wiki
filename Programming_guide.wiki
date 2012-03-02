@@ -4,6 +4,7 @@ A preliminary guide to programming with KMSTrLib.
 See also the section on [[Bindings|bindings to high level languages.]]
 
 === Exposed functions: ===
+Note that the set of exposed functions has changed since RC0!
 
 * **int TR_InitLibrary(char *path):**
 
@@ -20,19 +21,24 @@ Translates minilabel to ESRI-flavoured wkt. Requires file def_shp.txt in current
 * **void TR_TerminateThread(void):** 
 Frees various thread local resources. Should be called before exit of each thread, apart from the main thread, attached to the library.
 
-* **TR *tropen (char *label_in, char *label_out, char *geoid_name):** 
+* **TR *TR_Open (char *label_in, char *label_out, char *geoid_name):** 
 Opens a transformation object – TR is an internally defined struct, which contains data relevant to a transformation between systems defined by label_in and label_out. A special geoid can be specified as third parameter – if this is given as the empty string, a standard geoid, if available, is selected by the library.
 
 * **void TR_GeoidInfo(TR *tr):** Prints info about current selected geoid to stdout. This behaviour will be improved in later releases.
 
-* **int tr(TR *tr, double *X, double *Y, double *Z, int n):** 
-Perform a transformation defined in the TR-object. Input are pointers to coordinates. Here the pointer Z can be NULL. The last parameter specifies the number of points pointed to by the input.
+* **int TR_Transform(TR *tr, double *X, double *Y, double *Z, int n):** 
+Perform a transformation defined in the TR-object. Input are pointers to coordinates. Here the pointer Z can be NULL. The last parameter specifies the number of points pointed to by the input. Previously called tr!
 
-* **void trclose (TR *tr):**  Close a TR-object, frees the resources allocated in the object.
-* **int trstream(TR *tr, FILE *f_in, FILE *f_out, int n):** Transform points from/to file objects.
+* **void TR_Close (TR *tr):**  Close a TR-object, frees the resources allocated in the object.
+* **int trstream(TR *tr, FILE *f_in, FILE *f_out, int n):** Transform points from/to file objects. Previously called trclose!
 
-* **int TR_Transform(char *label_in, char *label_out,double *X,double *Y,double *Z,int npoints):** 
-This is a simple wrapper of tropen, tr and trclose.
+* The wrapper of TR_Open, TR_Transform and TR_Close previously called TR_Transform, has been deprecated! 
+
+New functions:
+
+* ** void TR_AllowUnsafeTransformations(void):** If running in single threaded mode, allow transformations which are NOT thread safe. These are disabled by default.
+* ** void TR_ForbidUnsafeTransformations(void):** Allows only thread safe transformations. This feature is enabled by default!
+
 
 ===Environment Variables:===
 * **TR_TABDIR:** Can be used to point to a relevant folder containing definition files and/or geoids distributed by KMS.
@@ -55,7 +61,7 @@ If the user wants to perform 3d-transformations, involving e.g. various height s
 We have implemented thread safety by using thread local storage. After the library has been initialised by TR_InitLibrary in some thread, each new thread created can perform transformations as usual. TR_TerminateThread **must** be called by the thread before it exits. 
 TR-objects returned by tropen contain thread local data, and should not be shared among threads.
 
-Due to a special implementation of Fehmarn transformations (defined by minilabel fcs), these are not fully thread safe and should be run by a single threaded process. The library will return an error if requested to open a Fehmarn transformation in another thread than the one which called TR_InitLibrary succesfully.
+Due to a special implementation of Fehmarn transformations (defined by minilabel fcs), these are not fully thread safe and should be run by a single threaded process. The transformations can only be run after a call to **TR_AllowUnsafeTransformations**.
 
 
 ===Simple examples:===
@@ -75,9 +81,9 @@ int main(void) {
     TR_GetVersion(ver,128);
     printf("TrLib version %s\n",ver);
     TR_InitLibrary("");
-    trf=tropen("utm32Ewgs84","utm33Eed50","");
+    trf=TR_Open("utm32Ewgs84","utm33Eed50","");
     err=tr(trf,x,y,z,2);
-    trclose(trf);
+    TR_Close(trf);
     TR_TerminateLibrary();
     return err;
 }
@@ -95,13 +101,13 @@ int main (int argc, char *argv[]) {
     FILE *in, *out;
     int err;
     TR_InitLibrary("");
-    tr  = tropen (argv[1], argv[2],"");
+    tr  = TR_Oopen (argv[1], argv[2],"");
     in  = fopen (argv[3], "rt");
     out = fopen (argv[4], "wt");
-    err = trstream (tr, in, out, 0);
+    err = TR_Stream (tr, in, out, 0);
     fclose (out);
     fclose (in);
-    trclose (tr);
+    TR_Close (tr);
     TR_TerminateLibrary();
     return err;
 }
@@ -136,22 +142,13 @@ double X,Y,Z;
 e = KMSTR_Transform("utm32Hwgs84_h_dvr90","utm33Ewgs84",512200.1,6143200.1,0,&X,&Y,&Z);
 }}}
 
-This would now be:
+In the new API, this can be done by:
 {{{
 #!c
 int e;
+TR *trf=TR_Open("utm32Hwgs84_h_dvr90","utm33Ewgs84","");
 double X=512200.1,Y=6143200.1,Z=0;
-e= TR_Transform("utm32Hwgs84_h_dvr90","utm33Ewgs84",&X,&Y,&Z,1);
-}}}
-
-However, a more efficient way - if the projection is to be reused, would be:
-
-{{{
-#!c
-int e;
-TR *trf=tropen("utm32Hwgs84_h_dvr90","utm33Ewgs84","");
-double X=512200.1,Y=6143200.1,Z=0;
-e= tr(trf,&X,&Y,&Z,1);
+e= TR_Transform(trf,&X,&Y,&Z,1);
 if (e!=TR_OK)
     printf("Error, return code was: %d, extended error msg: %d\n",e,TR_GetLastError());
 
