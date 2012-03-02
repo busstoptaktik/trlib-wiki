@@ -39,6 +39,7 @@ New functions:
 * ** void TR_AllowUnsafeTransformations(void):** If running in single threaded mode, allow transformations which are NOT thread safe. These are disabled by default.
 * ** void TR_ForbidUnsafeTransformations(void):** Allows only thread safe transformations. This feature is enabled by default!
 
+* **int TR_InverseTransform(TR *tr, double *X, double *Y, double *Z, int n):** Perform inverse of transformation defined in TR-object tr.
 
 ===Environment Variables:===
 * **TR_TABDIR:** Can be used to point to a relevant folder containing definition files and/or geoids distributed by KMS.
