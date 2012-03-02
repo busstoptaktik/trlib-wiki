@@ -24,13 +24,13 @@ Frees various thread local resources. Should be called before exit of each threa
 * **TR *TR_Open (char *label_in, char *label_out, char *geoid_name):** 
 Opens a transformation object – TR is an internally defined struct, which contains data relevant to a transformation between systems defined by label_in and label_out. A special geoid can be specified as third parameter – if this is given as the empty string, a standard geoid, if available, is selected by the library.
 
-* **void TR_GeoidInfo(TR *tr):** Prints info about current selected geoid to stdout. This behaviour will be improved in later releases.
+* **void TR_GeoidInfo(TR *tr):** Not yet fully operational. Prints info about current selected geoid to stdout. This behaviour will be improved in later releases, or the function will be deprecated.
 
 * **int TR_Transform(TR *tr, double *X, double *Y, double *Z, int n):** 
 Perform a transformation defined in the TR-object. Input are pointers to coordinates. Here the pointer Z can be NULL. The last parameter specifies the number of points pointed to by the input. Previously called tr!
 
 * **void TR_Close (TR *tr):**  Close a TR-object, frees the resources allocated in the object.
-* **int trstream(TR *tr, FILE *f_in, FILE *f_out, int n):** Transform points from/to file objects. Previously called trclose!
+* **int TR_Stream(TR *tr, FILE *f_in, FILE *f_out, int n):** Transform points from/to file objects. Previously called trclose!
 
 * The wrapper of TR_Open, TR_Transform and TR_Close previously called TR_Transform, has been deprecated! 
 
@@ -82,7 +82,7 @@ int main(void) {
     printf("TrLib version %s\n",ver);
     TR_InitLibrary("");
     trf=TR_Open("utm32Ewgs84","utm33Eed50","");
-    err=tr(trf,x,y,z,2);
+    err=TR_Transform(trf,x,y,z,2);
     TR_Close(trf);
     TR_TerminateLibrary();
     return err;
