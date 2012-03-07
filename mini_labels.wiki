@@ -1,3 +1,9 @@
 == Mini Labels ==
 
-More information to come....
+An in detail description of mini labels will be distributed with releases. A similar description can also be found in the help pages to the GUI app **KMSTrans**. All this information will find its way here, shortly...
+
+Among the new mini labels in the coming release are:
+
+* fotm - Faroe Transverse Mercator.
+* webmrc - Web Mercator.
+* fcs - Fehmarn projection.
