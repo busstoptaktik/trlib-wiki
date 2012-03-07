@@ -129,7 +129,7 @@ Another implementation detail is that the library performs some internal initial
 
 === Return Codes ===
 
-The return codes from API functions are defined in trlib_api.h and are as follows:
+The return codes from API functions are defined in trlib_api.h. Apart from **TR_InitLibrary** they follow the convention:
 
 * TR_OK=0 , means that all is OK.
 * TR_LABEL_ERROR=1 , means that an erroneous minilabel was given as input.
