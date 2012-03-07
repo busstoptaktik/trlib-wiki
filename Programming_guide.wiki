@@ -77,7 +77,7 @@ The following example illustrates a simple usage of the library where TR_TABDIR 
 #include <stdio.h>
 #include "trlib_api.h"
 int main(void) {
-    int err;
+    int is_init,err;
     double x[2]={512200.1,845200.1};
     double y[2]={6143200.0,6099200.2};
     double z[2]={20.0,30.0};
@@ -85,7 +85,9 @@ int main(void) {
     TR *trf;
     TR_GetVersion(ver,128);
     printf("TrLib version %s\n",ver);
-    TR_InitLibrary("");
+    is_init=TR_InitLibrary("");
+    if (!is_init)
+        exit(FAILURE);
     trf=TR_Open("utm32Ewgs84","utm33Eed50","");
     err=TR_Transform(trf,x,y,z,2);
     TR_Close(trf);
