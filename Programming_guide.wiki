@@ -50,7 +50,8 @@ New functions:
 
 === Definition files and geoid library: ===
 
-The definition file def_lab.txt is needed in order to perform any transformations. The library will, as default, look for def_lab.txt in the current directory (where a program is invoked). If def_lab.txt is not found there, knowing that the concept of “current directory” is not always well defined, the KMSTrLib will look for the definition file in the tabdir defined in TR_InitLibrary. The same procedure holds for other definition/parameter files. For example the file def_shp.txt is needed by the function TR_GetEsriText.
+The definition file def_lab.txt is needed in order to perform any transformations. The library will, as default, look for def_lab.txt in the current directory (where a program is invoked). If def_lab.txt is not found there, knowing that the concept of “current directory” is not always well defined, KMSTrLib will look for the definition file in the tabdir defined in TR_InitLibrary. The same procedure holds for other definition/parameter files. For example the file def_shp.txt is needed by the function TR_GetEsriText.
+
 If the user wants to perform 3d-transformations, involving e.g. various height systems, a proper geoid library distributed by KMS on releases should be pointed to by InitLibrary. However it is possible to do 2d-transformations without any geoid library, as long as def_lab.txt can be located.
 
 ===Possible setups:===
@@ -63,7 +64,7 @@ If the user wants to perform 3d-transformations, involving e.g. various height s
 
 ===Thread Safety===
 
-We have implemented thread safety by using thread local storage. After the library has been initialised by TR_InitLibrary in some thread, each new thread created can perform transformations as usual. TR_TerminateThread **must** be called by the thread before it exits. 
+We have implemented thread safety by using thread local storage. After the library has been initialised by **TR_InitLibrary** in some thread, each new thread created can perform transformations as usual. **TR_TerminateThread** **must** be called by the thread before it exits. 
 TR-objects returned by tropen contain thread local data, and should not be shared among threads.
 
 Due to a special implementation of Fehmarn transformations (defined by minilabel fcs), these are not fully thread safe and should be run by a single threaded process. The transformations can only be run after a call to **TR_AllowUnsafeTransformations**.
@@ -108,7 +109,7 @@ int main (int argc, char *argv[]) {
     FILE *in, *out;
     int err;
     TR_InitLibrary("");
-    tr  = TR_Oopen (argv[1], argv[2],"");
+    tr  = TR_Open (argv[1], argv[2],"");
     in  = fopen (argv[3], "rt");
     out = fopen (argv[4], "wt");
     err = TR_Stream (tr, in, out, 0);
