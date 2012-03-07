@@ -8,7 +8,11 @@ Note that the set of exposed functions has changed since RC0!
 
 * **int TR_InitLibrary(char *path):**
 
-Sets tabdir/geoid folder to input string and initialises various global resources. If the input string is empty, the function will look for input from environment variable TR_TABDIR. If the user wants to perform 3d-transformations the directory pointed to here should be a valid geoid library distributed by KMS. Returns 1 on success, 0 otherwise. This function is not thread safe and should be called by the main thread, before other threads start doing transformations. 
+Sets tabdir/geoid folder to input string and initialises various global resources. If the input string is empty, the function will look for input from environment variable TR_TABDIR. If the user wants to perform 3d-transformations the directory pointed to here should be a valid geoid library distributed by KMS. 
+
+Returns 1 on success, 0 otherwise, so that the "truth value" directly indicates succes or failure. Note that this differs from the general convention for the API functions. 
+
+This function is *not* thread safe and should be called by the main thread, before other threads start doing transformations. 
 
 * **void TR_GetVersion(char *buffer, int bufferlength):**  Writes version info to buffer. 
 * **int TR_GetLastError(void):** Returns extended error code.
