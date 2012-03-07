@@ -6,9 +6,11 @@ Hopefully lots of useful information will eventually find its way here.
 See also the [[Programming guide|programming guide.]]
 === Notes on release ===
 
-We are preparing a release procedure. The code in the repository is NOT yet an official release version. However, the "machine room" is functioning and stable, so developers should be able to build very usable versions on their own. 
+Planned release of KMSTRLIB v.1.0 (version 1.0 of the transformation library with the NEW API) is Thursday March 08 2012. 
 
-We are planning a release in week 10!
+Precompiled binaries for windows and updated geoid library will be available for download from the [[http://www.kms.dk/Emner/Referencenet/Koordinattransformation/|KMS website]] by then.
+
+Also, a new version of the GUI application KMSTRANS, build on the same transformation code, will be available for download shortly after (beginning of week 11). 
 
 === Build procedures ===
 
@@ -16,7 +18,9 @@ A makefile for linux (gcc) has been added to the root directory. Alternatively y
 # Make a directory BUILD at the same level as trlib. Then cd to that directory.
 # Run cmake ../trlib - this will generate makefiles/project files, which defaults to whatever compiler you have on your system (Visual Studio, gcc etc.)
 # You can also specify the target compiler suite by using the -G switch: cmake -G <generator> ../trlib 
+=== Mini Labels ===
 
+(KMS)TrLib uses the (famous) mini label system for specification of projection/reference system metadata. See the [[mini labels|mini labels page]] for an introduction. 
 
 === Supported systems ===
 
