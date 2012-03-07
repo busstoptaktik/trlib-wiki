@@ -9,7 +9,7 @@ Common to the bindings, which are all to object oriented languages, is that a tr
 {{{
 #!python
 import TrLib
-TrLib.InitLibrary(my_geoid_folder)
+TrLib.InitLibrary(my_geoid_folder,"KMSTRLIB.dll","C:\\LIB")
 ct=TrLib.CoordinateTransformation("utm32Ewgs84","utm32Eed50")
 x,y,z=ct.Transform(512200.1,6143200.1,100.0)
 ct.Close()
