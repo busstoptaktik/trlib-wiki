@@ -6,7 +6,7 @@ Hopefully lots of useful information will eventually find its way here.
 See also the [[Programming guide|programming guide.]]
 === Notes on release ===
 
-Planned release of KMSTRLIB v.1.0 (version 1.0 of the transformation library with the NEW API) is Thursday March 08 2012. 
+Due to *popular* request to implement new features the planned release of KMSTRLIB v.1.0 (version 1.0 of the transformation library with the NEW API) has been postponed to Monday March 12 2012. 
 
 Precompiled binaries for windows and updated geoid library will be available for download from the [[http://www.kms.dk/Emner/Referencenet/Koordinattransformation/|KMS website]] by then.
 
