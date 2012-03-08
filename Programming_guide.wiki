@@ -10,40 +10,80 @@ Note that the set of exposed functions has changed since RC0!
 
 Sets tabdir/geoid folder to input string and initialises various global resources. If the input string is empty, the function will look for input from environment variable TR_TABDIR. If the user wants to perform 3d-transformations the directory pointed to here should be a valid geoid library distributed by KMS. 
 
-Returns 1 on success, 0 otherwise, so that the "truth value" directly indicates succes or failure. Note that this differs from the general convention for the API functions. 
+Returns TR_OK on success, TR_ERROR otherwise (note: this has been changed seen the first release candidates!) 
 
 This function is *not* thread safe and should be called by the main thread, before other threads start doing transformations. 
 
-* **void TR_GetVersion(char *buffer, int bufferlength):**  Writes version info to buffer. 
-* **int TR_GetLastError(void):** Returns extended error code.
+* **void TR_GetVersion(char *buffer, int bufferlength):**  
 
-* **int TR_GetEsriText(char *label_in, char *wkt_out):** 
+Writes version info to buffer. 
+* **int TR_GetLastError(void):** 
+
+Returns extended error code.
+
+* **int TR_GetEsriText(char *label_in, char *wkt_out):**
+ 
 Translates minilabel to ESRI-flavoured wkt. Requires file def_shp.txt in current working directory or tabdir defined in TR_InitLibrary. Works for most common minilabels.
 
-* **void TR_TerminateLibrary(void):** Frees various global resources. Should be called when library is shut down.
+* **void TR_TerminateLibrary(void):** 
+
+Frees various global resources. Should be called when library is shut down.
 
 * **void TR_TerminateThread(void):** 
+
 Frees various thread local resources. Should be called before exit of each thread, apart from the main thread, attached to the library.
 
 * **TR *TR_Open (char *label_in, char *label_out, char *geoid_name):** 
+
 Opens a transformation object – TR is an internally defined struct, which contains data relevant to a transformation between systems defined by label_in and label_out. A special geoid can be specified as third parameter – if this is given as the empty string, a standard geoid, if available, is selected by the library.
 
-* **void TR_GeoidInfo(TR *tr):** Not yet fully operational. Prints info about current selected geoid to stdout. This behaviour will be improved in later releases, or the function will be deprecated.
+* **void TR_GeoidInfo(TR *tr):** 
+
+Not yet fully operational. Prints info about current selected geoid to stdout. This behaviour will be improved in later releases, or the function will be deprecated.
 
 * **int TR_Transform(TR *tr, double *X, double *Y, double *Z, int n):** 
+
 Perform a transformation defined in the TR-object. Input are pointers to coordinates. Here the pointer Z can be NULL. The last parameter specifies the number of points pointed to by the input. Previously called tr!
 
-* **void TR_Close (TR *tr):**  Close a TR-object, frees the resources allocated in the object.
-* **int TR_Stream(TR *tr, FILE *f_in, FILE *f_out, int n):** Transform points from/to file objects. Previously called trclose!
+* **void TR_Close (TR *tr):**  
 
-* The wrapper of TR_Open, TR_Transform and TR_Close previously called TR_Transform, has been deprecated! 
+Close a TR-object, frees the resources allocated in the object.
+* **int TR_Stream(TR *tr, FILE *f_in, FILE *f_out, int n):** 
 
-New functions:
+Transform points from/to file objects. Previously called trclose!
 
-* ** void TR_AllowUnsafeTransformations(void):** If running in single threaded mode, allow transformations which are NOT thread safe. These are disabled by default.
-* ** void TR_ForbidUnsafeTransformations(void):** Allows only thread safe transformations. This feature is enabled by default!
+==== New functions: ====
 
-* **int TR_InverseTransform(TR *tr, double *X, double *Y, double *Z, int n):** Perform inverse of transformation defined in TR-object tr.
+* ** void TR_AllowUnsafeTransformations(void):** 
+
+If running in single threaded mode, allow transformations which are NOT thread safe. These are disabled by default.
+* ** void TR_ForbidUnsafeTransformations(void):** 
+
+Allows only thread safe transformations. This feature is enabled by default!
+
+* **int TR_InverseTransform(TR *tr, double *X, double *Y, double *Z, int n):** 
+
+Perform inverse of transformation defined in TR-object tr.
+
+====A few more wrappers of the transformation procedure have been implemented as well:====
+
+* **int TR_Transform2(TR *tr, double *X_in, double *Y_in, double *Z_in, double *X_out, double *Y_out, double *Z_out, int n):** 
+
+Same as **TR_Transform**. However, pointers to output should be provided - input is not overwritten.
+*  **int TR_InverseTransform2(TR *tr, double *X_in, double *Y_in, double *Z_in, double *X_out, double *Y_out, double *Z_out, int n):** 
+
+The inverse of **TR_Transform2**.
+*  **int TR_TransformPoint(TR *tr, double X_in, double Y_in, double Z_in, double *X_out, double *Y_out, double *Z_out):** 
+
+A 'point' version of **TR_Transform2** where input are coordinates by value and pointers to output.
+* **int  TR_InverseTransformPoint(TR *tr, double X_in, double Y_in, double Z_in, double *X_out, double *Y_out, double *Z_out):** 
+
+The inverse of **TR_TransformPoint**.
+
+====**Deprecated:**====
+
+* The wrapper of **TR_Open**, **TR_Transform** and **TR_Close** previously called **TR_Transform**, has been deprecated! 
+
 
 ===Environment Variables:===
 * **TR_TABDIR:** Can be used to point to a relevant folder containing definition files and/or geoids distributed by KMS.
@@ -122,6 +162,36 @@ int main (int argc, char *argv[]) {
 
 }}}
 
+Using some of the wrappers of the transformation procedure, we could also do:
+
+{{{
+#!c
+
+int err;
+double x,y,z;
+TR trf=TR_Open("utm32Eed50","crt_wgs84","");
+err=TR_TransformPoint(trf,512200.1,6143200.1,100.0,&x,&y,&z);
+/* test if we can get back again? */
+err=TR_InverseTransformPoint(trf,x,y,z,&x,&y,&z);
+
+}}}
+
+An example with arrays:
+{{{
+#!c
+int foo(double *x, double *y, double *x_o, double *y_o, int n){
+    int err;
+    TR trf=TR_Open("geoHetrs89_h_msl","utm22Ngr96","");
+    err=TR_Transform2(trf,x,y,NULL,x_o,y_o,NULL,n);
+    if (err!=TR_OK)
+          printf("OOps, this is the extended error code: %d\n",TR_GetLastError());
+    else
+          /* can we get back? */
+          err=TR_InverseTransform2(trf,x_o,y_o,NULL,x,y,n);
+    return err;
+}
+}}}
+
 ===Maximising performance:===
 
 Since resources are allocated each time a new transformation object is opened with tropen, it is generally a good idea to keep the TR-objects around as long as they are needed. The simple wrapper TR_Transform opens and closes a new TR-object on each call. However, the performance difference should be negligible unless you are doing a lot of the same transformations right after each other.
@@ -132,7 +202,7 @@ Another implementation detail is that the library performs some internal initial
 
 === Return Codes ===
 
-The return codes from API functions are defined in trlib_api.h. Apart from **TR_InitLibrary** they follow the convention:
+The return codes from API functions are defined in trlib_api.h. 
 
 * TR_OK=0 , means that all is OK.
 * TR_LABEL_ERROR=1 , means that an erroneous minilabel was given as input.
