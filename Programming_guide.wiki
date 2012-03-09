@@ -17,6 +17,7 @@ This function is *not* thread safe and should be called by the main thread, befo
 * **void TR_GetVersion(char *buffer, int bufferlength):**  
 
 Writes version info to buffer. 
+
 * **int TR_GetLastError(void):** 
 
 Returns extended error code.
@@ -47,10 +48,11 @@ Perform a transformation defined in the TR-object. Input are pointers to coordin
 
 * **void TR_Close (TR *tr):**  
 
-Close a TR-object, frees the resources allocated in the object.
+Close a TR-object, frees the resources allocated in the object. Previously called tropen.
+
 * **int TR_Stream(TR *tr, FILE *f_in, FILE *f_out, int n):** 
 
-Transform points from/to file objects. Previously called trclose!
+Transform points from/to file objects. Previously called trstream.
 
 ==== New functions: ====
 
