@@ -183,7 +183,7 @@ An example with arrays:
 #!c
 int foo(double *x, double *y, double *x_o, double *y_o, int n){
     int err;
-    TR trf=TR_Open("geoHetrs89_h_msl","utm22Ngr96","");
+    TR trf=TR_Open("geo_wgs84","utm22_gr96","");
     err=TR_Transform2(trf,x,y,NULL,x_o,y_o,NULL,n);
     if (err!=TR_OK)
           printf("Oops, this is the extended error code: %d\n",TR_GetLastError());
