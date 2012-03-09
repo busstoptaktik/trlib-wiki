@@ -186,10 +186,10 @@ int foo(double *x, double *y, double *x_o, double *y_o, int n){
     TR trf=TR_Open("geoHetrs89_h_msl","utm22Ngr96","");
     err=TR_Transform2(trf,x,y,NULL,x_o,y_o,NULL,n);
     if (err!=TR_OK)
-          printf("OOps, this is the extended error code: %d\n",TR_GetLastError());
+          printf("Oops, this is the extended error code: %d\n",TR_GetLastError());
     else
           /* can we get back? */
-          err=TR_InverseTransform2(trf,x_o,y_o,NULL,x,y,n);
+          err=TR_InverseTransform2(trf,x_o,y_o,NULL,x,y,NULL,n);
     return err;
 }
 }}}
