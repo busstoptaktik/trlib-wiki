@@ -93,30 +93,29 @@ A list of height systems and (height) datum is given below.
 In order to avoid confusion when different stations in the same file are having the same station identification (station number), it has bees made possible to apply a "Region Prefix" to the MiniLabel (and to the station identification as well). - this situation often occurs when stations from separate regions (countries) are mixed in the same file. When the MiniLabel for a coordinate block contains a "Region Prefix", this prefix applies to all stations in the block, except stations having their own region prefix in the ID.
 
 ====Possible Region Prefixes:====
-
-*PREFIX:   REGION
-*DK :	Denmark          
-*FO :	Faroe Islands    
-*FE :	Faroe Islands (Not used any longer)   
-*GR :	Greenland        
-*SJ :	Southern Jylland 
-*IS :	Iceland          
-*NO :	Norway           
-*SF :	Finland          
-*SE :	Sveden           
-*SV :	Sveden  (Not used any longer)          
-*BE :	Belgium          
-*CA :	Canada           
-*DE :	Germany          
-*EE :	Estonia          
-*FR :	France           
-*LE :	Latvia           
-*LT :	Lithuania        
-*LI :	Lithuania        
-*NL :	Netherlands      
-*PL :	Poland           
-*UK :	England          
-*US :	USA              
+|=PREFIX|=REGION|
+|DK |Denmark |         
+|FO |Faroe Islands|    
+|FE |	Faroe Islands (Not used any longer)|   
+|GR |Greenland |
+|SJ |	Southern Jylland |
+|IS |	Iceland          |
+|NO |Norway           |
+|SF |Finland          |
+|SE |Sveden           |
+|SV |Sveden  (Not used any longer)|          
+|BE |	Belgium          |
+|CA |Canada           |
+|DE |Germany       |   
+|EE |	Estonia          |
+|FR |	France          | 
+|LE |	Latvia           |
+|LT |	Lithuania       | 
+|LI |	Lithuania       | 
+|NL |	Netherlands   |   
+|PL |	Poland        |   
+|UK |England       |   
+|US |USA         |     
 
 
 Example of a coordinate minilabel with region prefix:  **DK_utm33_etrf89**
