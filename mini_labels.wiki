@@ -189,7 +189,7 @@ lmbap					Lambert equiv. pol. proj. (N)
 lmbaps					Lambert equiv. pol. proj. (S)
 auth					Authalic geogr. Crd.
 
-Region Europe
+====Region Europe====
 
 etrs-tm**		P.D.			etrs89 tm zone **
 ETRS-TM**	P.D.			etrs89 tm zone **
@@ -198,7 +198,7 @@ ETRS-LCC**	P.D.			etrs89 Lambert conf. con
 etrs-laea		P.D.			etrs89 Lmb Azimuthal Equal Area
 ETRS-LAEA	P.D.			etrs89 Lmb Azimuthal Equal Area
 
-Region Denmark
+====Region Denmark====
 
 dktm1		P.D.			DK TM1 etrf89 (E, N)
 
@@ -235,7 +235,7 @@ Dks		P.D.			Øresund bridge proj, special
 Sb		P.D.			SB bridge proj.
 Sbf		P.D.			SB bridge proj., inverted
 
-Region Faroe Islands
+====Region Faroe Islands====
 
 fke		P.D.			Conf. con. FO, euref89
 
@@ -245,12 +245,12 @@ fg54		P.D.			FO geogr. crd, fd54
 fk54		P.D.			Conf. con. FO, fd 54
 fk89		P.D.			Conf. con. FO, fd 54a
 
-Region Greenland
+====Region Greenland====
 
 gk*w		P.D.			conf. con, W-GR, qornoq
 gk*e		P.D.			conf. con, E-GR, qornoq
 
-Region Estonia
+====Region Estonia====
 
 eel2p		P.D.			Estonian Lambert, 2 std par.
 eetm**		P.D.			Estonian Gauss-Kr **, 3dg.z
@@ -264,14 +264,14 @@ eecrt		P.D.			Cartesic crd, Pulkovo 1942
 eelmne		P.D.			Estonian Lmb 2 par., epv37
 eelmse		P.D.			Estonian Lmb 2 par., epv37
 
-Region Sweden
+====Region Sweden====
 
 rt38g		P.D.			RT38g, 2.5 gon vest
 rt90g					RT90g, 2.5 gon vest
 rt90v		P.D.			RT90v, spec. for dks
 rt38v		P.D.			RT38v, spec. for dks
 
-Region IceLand
+====Region Iceland====
 
 lmbhjo		P.D.			Lambert Conf. Con Hjørsey
 islmb		P.D.			Lambert Conf. Con wgs84 IS
