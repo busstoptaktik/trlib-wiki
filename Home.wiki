@@ -7,6 +7,7 @@ Hopefully lots of useful information will eventually find its way here.
 
 * [[Programming guide|Programming guide.]]
 * [[mini labels|A description of MiniLabels.]]
+* [[Bindings|Bindings to high level languages.]]
 
 === Notes on release ===
 
