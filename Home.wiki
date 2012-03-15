@@ -3,7 +3,11 @@
 Welcome to this first version of the TrLib wiki. 
 Hopefully lots of useful information will eventually find its way here.
 
-See also the [[Programming guide|programming guide.]]
+=== Other pages with documentation ===
+
+* [[Programming guide|Programming guide.]]
+* [[mini labels|A description of MiniLabels.]]
+
 === Notes on release ===
 
 Slightly delayed, the brand new version of KMSTrLib (v. 1.0) has finally been released!
@@ -20,7 +24,7 @@ A makefile for linux (gcc) has been added to the root directory. Alternatively y
 # You can also specify the target compiler suite by using the -G switch: cmake -G <generator> ../trlib 
 === Mini Labels ===
 
-(KMS)TrLib uses the (famous) mini label system for specification of projection/reference system metadata. See the [[mini labels|mini labels page]] for an introduction. 
+(KMS)TrLib uses the (famous) mini label system for specification of projection/reference system metadata. See the [[mini labels|MiniLabels page]] for an introduction. We plan to implement translation procedures between MiniLabels and other, more widespread, metadata systems such as ogc-wkt and EPGS-codes. A translation from MiniLabels to ESRI-flavoured wkt is already implemented in the core and exposed in the python bindings.
 
 === Supported systems ===
 
