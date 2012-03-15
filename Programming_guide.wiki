@@ -112,6 +112,18 @@ TR-objects returned by tropen contain thread local data, and should not be share
 
 Due to a special implementation of Fehmarn transformations (defined by minilabel fcs), these are not fully thread safe and should be run by a single threaded process. The transformations can only be run after a call to **TR_AllowUnsafeTransformations**.
 
+A snippet, which would allow a Fehmarn-transformation:
+{{{
+#!c
+ TR *trf;
+ int err;
+ double x,y,z;
+ TR_AllowUnsafeTransformations();
+ trf=TR_Open("utm32Eed50","fcsH_h_fcsvr10","");
+ err=TR_TransformPoint(trf,845200.1,6145200.1,100.0,&x,&y,&z);
+ TR_Close(trf);
+}}}
+
 
 ===Simple examples:===
 
