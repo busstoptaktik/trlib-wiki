@@ -1,9 +1,450 @@
-== Mini Labels ==
+== MiniLabels ==
 
-An in detail description of mini labels will be distributed with releases. A similar description can also be found in the help pages to the GUI app **KMSTrans**. All this information will find its way here, shortly...
+An in detail description of mini labels will be distributed with releases. A similar description can also be found in the help pages to the GUI app **KMSTrans**. 
 
-Among the new mini labels in the coming release are:
+Among the new mini labels in the recent release are:
 
 * fotm - Faroe Transverse Mercator.
 * webmrc - Web Mercator.
 * fcs - Fehmarn projection.
+
+=== KMS Coordinate MiniLabels ===
+
+MiniLabels were introduced to identify and read geodetic data (coordinates and observations). The concept of MiniLabels is used in the KMS Standard Format and in some other formats, when no description of coordinate system and datum may be found.
+
+A MiniLabel is a short text string placed at the start of a data block, identifying the data in the block. A MiniLabel for a coordinate list tells the program which kind of coordinates is contained in the list (which coordinate system and datum). 
+
+When the concept of MiniLabels was extended to include height labels too the name may by a little misleading.
+
+As no observation data are accepted by this transformation program, the following description will concentrate on **Coordinate MiniLabels.**
+
+Coordinate MiniLabels comes in two kinds:
+
+====Coordinate MiniLabels Kind 1:====
+
+A string consisting of three components:
+   <coordinate system><separator><datum>[_<height minilabel>].
+
+The coordinate system is mostly also readable for humans: the string "geo" indicates geographical coordinates, "utm33" represents UTM zone 33. In some of the other cases, the translation may not be quite obvious. Later in this topic you will find lists and examples further describing MiniLabel Components.
+
+The separator is used in two ways:
+# 	Separate the coordinate system and the datum
+
+#	Tell about the height system (and possibly the height mini label)
+
+Note: that an extra separator char ‘_’ is placed before the height minilabel.
+
+The separator consists of just one character having one of the values: 
+
+* **‘H’: Vertical Reference Frame:** A height minilabel is requested after “datum”. 
+
+* **'E':** Ellipsoidal Heights.
+
+* **‘_’:** No Heights.
+
+* **'N':** Normal Heights (i.e. the same as H and _h_msl).
+
+The datum is the name of the datum (for coordinates) in small letters. For example:
+
+wgs84, etrf89, nad83g, qornoq.
+
+For some systems, the three components already described are not sufficient - extra parameters are needed. Such parameters (identifying for example the scale, a central meridian, translation of the coordinates etc) are placed after the "main" (3-Component) part of the MiniLabel. Having identified the "Main Part", the program knows how to read the extra parameters.
+
+Below you will find lists and examples further describing MiniLabel Components.
+
+====A few kind 1 coordinate MiniLabels:====
+
+* geo_wgs84	: Geographical Coord., Datum WGS84. No hights
+* utm32_etrf89	: UTM Zone 32, Datum ED50. No heights
+* crt_nad83g	: Cartesic Coordinates, Datum NAD83g. No heights
+
+
+====Coordinate MiniLabels Kind 2:====
+
+A string consisting of three components:
+
+*   <coordinate system>[<separator>[_<height minilabel>]].
+
+The second kind of minilabels is mostly used to identify "regional" coordinate systems. For this kind, the minilabel string consists of only a few letters, forming an (abbreviated) name of the system. Having identified a MiniLabel of this kind, the program knows the values of the implicit parameters needed for the transformation. These "implicit parameters" may include coefficients for transformation routine. 
+
+==== A few kind 2 coordinate Minilabels:====
+
+* dktm1		: DK TM Zone 1 EUREF89 (E, N)
+* dktm2		: DK TM Zone 2 EUREF89 (E, N)
+* dktm3E	: DK TM Zone 3 EUREF89 (E, N) and ellipsoid height
+* dktm4		: DK TM Zone 4 EUREF89 (E, N)
+* kp2000j	: System 2000 Jylland
+* kp2000s	: System 2000 Sjælland
+* kp2000b	: System 2000 Bornholm
+* sbH_h_dvr90	: Great Belt and DVR90 heights
+
+====Height MiniLabels:====
+
+A string consisting of three components:
+
+*   <height system>_<datum>.
+
+The only legal separator is ‘_’.
+
+A list of height systems and (height) datum is given below. 
+
+====Prefixes indicating Region:====
+
+In order to avoid confusion when different stations in the same file are having the same station identification (station number), it has bees made possible to apply a "Region Prefix" to the MiniLabel (and to the station identification as well). - this situation often occurs when stations from separate regions (countries) are mixed in the same file. When the MiniLabel for a coordinate block contains a "Region Prefix", this prefix applies to all stations in the block, except stations having their own region prefix in the ID.
+
+====Possible Region Prefixes:====
+
+*PREFIX:   REGION
+*DK :	Denmark          
+*FO :	Faroe Islands    
+*FE :	Faroe Islands (Not used any longer)   
+*GR :	Greenland        
+*SJ :	Southern Jylland 
+*IS :	Iceland          
+*NO :	Norway           
+*SF :	Finland          
+*SE :	Sveden           
+*SV :	Sveden  (Not used any longer)          
+*BE :	Belgium          
+*CA :	Canada           
+*DE :	Germany          
+*EE :	Estonia          
+*FR :	France           
+*LE :	Latvia           
+*LT :	Lithuania        
+*LI :	Lithuania        
+*NL :	Netherlands      
+*PL :	Poland           
+*UK :	England          
+*US :	USA              
+
+
+Example of a coordinate minilabel with region prefix:  **DK_utm33_etrf89**
+
+====List of Coordinate Systems.====
+
+The List contains a listing of the sub strings used in the MiniLabels to indicate Coordinate System.
+
+In the collum marked 'Suppl Params' you will find which extra parameters are needed to define the system. Coordinate Systems marked "P.D." has predefined datum; - such systems are fully defined via the name of the coordinate system and therefore neither datum nor extra parameters are needed in the label.
+
+Other elements contained in the "Suppl param" column indicate which extra parameters are needed for definition of the system. In the KmsTrans program, such parameters can not be selected directly via the boxes or buttons. Systems needing extra parameters can in the program be defined via the reading of a full label (including the parameters) from a file. (se after Datum). 
+
+The extra parameters are in a file written right after the 'normal' label, using double spaces and/or NL's as separators.
+
+Reading of a MiniLabel from a 'Label File' is selected from the System Drop down lists:
+
+Select the item 'Label from File' at the bottom of the list.
+
+The character '*' found in some of the coordinate system names in the list below are place holders for ciphers.
+
+For example, in the UTM systems, they indicate where to put the zone number. In the Conical Systems used in Greenland, the zones are called cones (numbered from 1 to 8) and the '*' character tells where to put the 'cone number’ 
+
+    MiniName		Suppl Param		Description
+
+Global Systems
+
+crt					Cartesian 3-d coord
+geo					Geographical coord (Lat, Lon)
+
+geoi					Geographical coord (Lon, Lat)
+
+utm**					UTM zone ** (** = 2 digits) (N,E) 
+
+utmi**					UTM zone ** (** = 2 digits) (E,N) 
+
+utm**n					UTM zone **, North. LAT (N,E)
+
+utmi**n					UTM zone **, North. LAT (E,N)
+
+utm**s					UTM zone **, South. LAT (S,E)
+
+utmi**s					UTM zone **, South. LAT (E,S)
+
+itm		B0 N0 Lc Ec Scale		TM, general GAUSS-KR (N, E)
+itmi		B0 N0 Lc Ec Scale		TM, general GAUSS-KR (E, N)
+
+tm**					GAUSS-KR ** dg 3dg.z scale 1.0
+
+mrc		B0 N0 Lc Ec		Mercator projection
+mrc0					Mercator Std Projection
+lmb		B0 N0 Lc Ec Bc		Lambert conf. con.
+dlmb		B0 N0 Lc Ec B1 B2	Lambert 2 par. c. con.
+elmb		B0 N0 Lc Ec B1 B2	Lambert eql. c. con.
+
+npstg					North polar stereographic
+spstg					South polar stereographic
+upsn					Universal polar stereogr N
+upss					Universal polar stereogr S
+stg		Bc Nc Lc Ec scale		Stereogr. projection
+estg		Bc Nc Lc Ec B1 B2	Eql. Stereogr. projection
+
+bnstg		B1 scale			NP. Stereogr. scale at B1
+bsstg		B1 scale			SP. Stereogr. scale at B1
+
+safle					Sansom-Flamsteed eq.pr., ell.
+safl					Sansom-Flamsteed equiv. proj.
+lmbac					Lambert equiv. cyl. proj.
+lmbap					Lambert equiv. pol. proj. (N)
+
+lmbaps					Lambert equiv. pol. proj. (S)
+auth					Authalic geogr. Crd.
+
+Region Europe
+
+etrs-tm**		P.D.			etrs89 tm zone **
+ETRS-TM**	P.D.			etrs89 tm zone **
+etrs-lcc**		P.D.			etrs89 Lambert conf. con
+ETRS-LCC**	P.D.			etrs89 Lambert conf. con
+etrs-laea		P.D.			etrs89 Lmb Azimuthal Equal Area
+ETRS-LAEA	P.D.			etrs89 Lmb Azimuthal Equal Area
+
+Region Denmark
+
+dktm1		P.D.			DK TM1 etrf89 (E, N)
+
+dktm2		P.D.			DK TM2 etrf89 (E, N)
+dktm3		P.D.			DK TM3 etrf89 (E, N)
+dktm4		P.D.			DK TM4 etrf89 (E, N)
+
+kfmr		P.D.			Kbh Frb Metroring, etrf89
+kp2000j		P.D.			System 2000 Jylland, etrf89
+kp2000s		P.D.			System 2000 Sjælland, etrf89
+kp2000b		P.D.			System 2000 Bornholm, etrf89
+
+dmrc		P.D.			Dansk Merkator etrf89
+
+fcs		P.D.			Fehmarn Coordinate System
+
+s34j		P.D.			System 1934 Jylland
+s34s		P.D.			System 1934 Sjælland
+s45b		P.D.			System 1945 Bornholm
+s34b		P.D.			System 1945 Bornholm
+dm		P.D.			Dansk Merkator ed50
+
+gsgeo		P.D.			geogr. crd, gs
+gsbgeo		P.D.			geogr. crd, gsb
+gs		P.D.			GS conf. con. DK
+gsb		P.D.			GS conf. con. Bornholm
+
+kk		P.D.			Kbh. komm. system
+os		P.D.			Ostenfeldt system
+
+asb		P.D.			Øresund bridge proj.
+
+Dks		P.D.			Øresund bridge proj, special
+Sb		P.D.			SB bridge proj.
+Sbf		P.D.			SB bridge proj., inverted
+
+Region Faroe Islands
+
+fke		P.D.			Conf. con. FO, euref89
+
+fg50		P.D.			FO geogr. crd, ed50
+fu50		P.D.			utm zone 29, top_ed50
+fg54		P.D.			FO geogr. crd, fd54
+fk54		P.D.			Conf. con. FO, fd 54
+fk89		P.D.			Conf. con. FO, fd 54a
+
+Region Greenland
+
+gk*w		P.D.			conf. con, W-GR, qornoq
+gk*e		P.D.			conf. con, E-GR, qornoq
+
+Region Estonia
+
+eel2p		P.D.			Estonian Lambert, 2 std par.
+eetm**		P.D.			Estonian Gauss-Kr **, 3dg.z
+eetm*		P.D.			Estonian Gauss-Kr  *, 3dg.z
+eebm		P.D.			Estonian Basic Map
+
+eegeo		P.D.			geogr. crd, Pulkovo 1942
+
+eecrt		P.D.			Cartesic crd, Pulkovo 1942
+
+eelmne		P.D.			Estonian Lmb 2 par., epv37
+eelmse		P.D.			Estonian Lmb 2 par., epv37
+
+Region Sweden
+
+rt38g		P.D.			RT38g, 2.5 gon vest
+rt90g					RT90g, 2.5 gon vest
+rt90v		P.D.			RT90v, spec. for dks
+rt38v		P.D.			RT38v, spec. for dks
+
+Region IceLand
+
+lmbhjo		P.D.			Lambert Conf. Con Hjørsey
+islmb		P.D.			Lambert Conf. Con wgs84 IS
+
+Where in the Suppl Param Collum: 
+
+P.D.		Predefined Datum
+
+B0, Bc		Latitude Constant
+Nc		Northing Constant
+L0, Lc		Longitude Constant
+Ec		Easting Constant
+Scale		Scale (close to 1 usually)
+
+B1, B2		Latitude parallels for definition of scale.
+
+====List of Separators:====
+
+The Separator in a Coordinate MiniLabel tells which kind of Height Information is included in the list:
+
+H		Height described in height minilabel
+E		Ellipsoid Heights
+
+_		No Heights
+N		Normal Heights: short for: H … _h_msl
+
+
+This separator is written in the MiniLabel right after the coordinate system sub string. It acts as:
+
+#	'real' separators between the sub strings indicating coordinate system and datum respectively.
+#	Information on presence of height system.
+
+(See Vertical Reference Frames).
+
+For the systems having a Predefined datum (P.D.), the datum should not be explicitly written in the label, here the separator is placed as an appendix to the coordinate system sub string.
+
+Accordingly, a MiniLabel indicating the following list to contain dhtm1 coordinates - and DVR90 heights will look like:
+
+  #dktm1H_h_dvr90
+
+====List of Datums====
+
+The following list contains the datum supported by the KMS Transformation System (and by KmsTrans)
+
+Parent Datum indicates the structure in the datum-hierarchy used internally by the transformation system.
+
+The character '@' at the start of some descriptions marks that this datum is only used in connection with one of the projection systems having a predefined datum.
+
+Coordinate
+
+Datum		Description				Parent datum	Ellipsoid
+
+wgs84		World Geodetic System 1984		ed50		WGS84
+
+etrf89		EUREF 89				wgs84		GRS80
+etrs89		EUREF 89				wgs84		GRS80
+euref89		EUREF 89				wgs84		GRS80
+
+gr96		Greenland Reference Frame 1996		wgs84		GRS80
+ed50		European Datum 1950			ed50		Hayford
+
+nad83g		North American D.1983 Greenland		nwl9d		GRS80
+qornoq		Qornok Datum 1927 (til WGS84)		nwl9d		Hayford
+scosd		Scoresbysund datum			nwl9d		Hayford
+ammlk		Ammassalik datum			nwl9d		Hayford
+
+
+feh10		Fehmarn Datum 2010            wgs84		GRS80
+
+s34j		@ System 1934 Jylland			ed50		Hayford
+s34s		@ System 1934 Sjælland			ed50		Hayford
+s45b		@ System 1945 Bornholm			ed50		Hayford
+gs		@ Generalst. Sys., Jyl. + Sjl		ed50		GS
+gsb		@ Generalst. System, Bornholm		ed50		GS
+os		@ Ostenfeldt System			ed50		Bessel
+kk		@ Københavns Komm. System		ed50		Dansk
+sb		@ Storebælts System			ed50		Hayford
+
+sbi		@ Storebælts System inv.			ed50		Hayford
+
+dks		@ DKS					ed50		Hayford
+asb		@ ASB					ed50		Hayford
+
+fd54		Færø Datum 1954				ed50		Hayford
+fg54		@ Geogr. FD 1954			etrf89		Hayford
+fg50		@ Færø, Geogr. ED 1950			etrf89		Hayford
+fk54		@ Konf. con.  FD 1954			etrf89		Hayford
+fu50		@ UTM 29, Topogr. grid, ED 50		etrf89		Hayford
+fk89		@ Konf. con. FD 1989 (NOT ETRF89)	etrf89		Hayford
+srt90g		SRT90, Sverige				wgs84		Bessel
+rt90g		RT90, Sverige				wgs84		Bessel
+
+rt90v		@ RT90v				ed50		Bessel
+rt38v		@ RT38v				ed50		Bessel
+rt38g		@ RT38g				ed50		Bessel
+
+ed87		European Datum 1987			ed50		Hayford
+wgs72		World Geodetic system 1972		nwl9d		WGS72
+nad83		North American Datum 1983		wgs84		GRS80
+nad27		North American D.1927, Conus		wgs84		Clarke66
+nad27c		North American D.1927, Canada		wgs84		Clarke66
+
+pu42		Pulkowo 1942, temporary			wgs84		Krassovsky
+
+island		Hjørsey datum 1955			wgs84		Hayford
+
+nwl9d		Naval Weapons Laboratory		wgs84		NWL9D
+
+ed79		European Datum 1979 			wgs84		Hayford
+dhdn		Deutsches Hauptdreiecksnetz		ed50		Bessel
+dhdnd		Deutsches Hauptdreiecksnetz		ed50		Bessel
+dhdn1		Deutsches Hauptdrnetz, DOEDOC		etrf89		Bessel
+dhdn2		Deutsches Hauptdrnetz, DOEDOC5p	ed50		Bessel
+dhdn3		Deutsches Hauptdrnetz, DOEDOC7p	ed50		Bessel
+
+
+eesti42		@ EESTI 1942				etrf89		Krassovsky
+
+ain1970		@ Ain El Abd 1970			wgs84		Hayford
+nahrwan		@ Nahrwan 1967				wgs84		Clarke80
+qng24		@ Qatar National Grid System 1924		wgs84		Hayford
+qbc2001		@ Qatar Bahrain Causeway (COWI)		wgs84		WGS84
+qnd1995		@ Qatar National Datum 1995		wgs84		Hayford
+
+Vertical
+
+Datum		Description				Ellipsoid
+
+dvr90		@ Danish Vertical Ref Frame 1990		GRS80
+evrf2000		@ Eropean Vertical Ref Frame 2000		GRS80
+
+evrf2007		@ Eropean Vertical Ref Frame 2007		GRS80
+
+fvr09		@ Faroe Vertical Ref Frame 2009		GRS80
+msl		@ Mean Sea Level Frame			GRS80
+
+
+fscvr10		@ Fehmarn Vertical Reference 2010		GRS80
+
+dnn		@ DNN: gm91/gi44/h_msl			Hayford
+gm91		@ Gradmålingen 1891 height		GS
+gi44		@ G.I. 1944 Height system			Hayford
+kn44		@ Kbh. Nul 1944 kotesys.			Hayford
+ee1940		@ ESTONIA 1940 Vertical Frame		Krassovsky
+ee1948		@ ESTONIA 1948 Vertical Frame		Krassovsky
+ee1977		@ ESTONIA 1977 Vertical Frame		Krassovsky
+qnhd		@ Qatar National Height Datum		Hayford
+
+As an example of a system demanding supplementing parameters we can use the ITM system. This system is (like the UTM) a transversal mercator system. In the ITM, you can via the extra parameters select the scale, central meridian and offsets for the coordinates.
+
+ 
+
+For the ITM System the suppl. parameters (and the order they should appear) is found in the coordinate system list:
+
+B0 N0 Lc Ec Scale 
+
+The content of an ITM Label File could be:
+
+*itmHetrf89_h_dvr90  0 sx  0 m  9 00 00 sx  500000.0 m  0.9996
+or using other units:
+*itmHetrf89_h_dvr90  0 dg  0 m  9 dg  500 km  0.9996
+
+This ITM label is actually the UTM zone 32 label: 
+
+*utm32Hetrf89_h_dvr90 
+
+====More Examples of MiniLabels:====
+
+* geo_etrf89:  Geographical Coordinates, Datum etrf89, No Heights. 
+* geoEetrf89: Geographical Coordinates, Datum etrf89. Ellipsoidal Heights 
+* utm32_euref89 : UTM coordinates  zone 32, Datum etrf89. No Heights.
+* dktm1E: Dansk TM zone 1, Ellipsoidal Heights.
+* dktm2: Dansk TM zone 1, No Heights. The '_' character may be omitted in the 'P.D.' systems.
+* crt_euref89: Cartesic Coordinates, Datum Euref89.   
+
+In Cartesic Systems the Height Component of the minilabel is just the '_' character as no Heights are accepted.
