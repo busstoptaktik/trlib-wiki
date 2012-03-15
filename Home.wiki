@@ -48,7 +48,7 @@ The library needs the definition file //def_lab.txt// in order to be able to run
 
 A rudimentary test suite has been implemented in python (available in the python folder). The auto tests can be invoked like this:
 
-*{{{python path_to_repos/python/AutoTest.py <shared_library_object> <Geoid_folder>}}}
+*{{{python path_to_repo/python/AutoTest.py <shared_library_object> <Geoid_folder>}}}
 
 For example, on windows:
 
