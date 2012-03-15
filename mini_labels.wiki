@@ -29,7 +29,6 @@ The coordinate system is mostly also readable for humans: the string "geo" indic
 
 The separator is used in two ways:
 # 	Separate the coordinate system and the datum
-
 #	Tell about the height system (and possibly the height mini label)
 
 Note: that an extra separator char ‘_’ is placed before the height minilabel.
