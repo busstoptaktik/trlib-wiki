@@ -139,22 +139,23 @@ The character '*' found in some of the coordinate system names in the list below
 For example, in the UTM systems, they indicate where to put the zone number. In the Conical Systems used in Greenland, the zones are called cones (numbered from 1 to 8) and the '*' character tells where to put the 'cone number’ 
 
 
+
 |=MiniName		|=Suppl Param|=Description|
 |**Global Systems**| | |
 |crt|					|	Cartesian 3-d coord|	
 |	geo|					|		Geographical coord (Lat, Lon)|	
 |	geoi	|				|		Geographical coord (Lon, Lat)|	
-|	utm**|				|		UTM zone ** (** = 2 digits) (N,E) |	
-|	utmi**|				|		UTM zone ** (** = 2 digits) (E,N) |	
-|	utm**n	|			|				UTM zone **, North. LAT (N,E)|	
-|	utmi**n	|			|			UTM zone **, North. LAT (E,N)|	
-|	utm**s	|			|			UTM zone **, South. LAT (S,E)|	
-|	utmi**s	|			|			UTM zone **, South. LAT (E,S)|	
+|	utm**|				|		UTM zone ?? (?? = 2 digits) (N,E) |	
+|	utmi??|				|		UTM zone ?? (?? = 2 digits) (E,N) |	
+|	utm??n	|			|				UTM zone ??, North. LAT (N,E)|	
+|	utmi??n	|			|			UTM zone ??, North. LAT (E,N)|	
+|	utm??s	|			|			UTM zone ??, South. LAT (S,E)|	
+|	utmi??s	|			|			UTM zone ??, South. LAT (E,S)|	
 |	itm		|	B0 N0 Lc Ec Scale|			TM, general GAUSS-KR (N, E)|	
 |	itmi		|	B0 N0 Lc Ec Scale|			TM, general GAUSS-KR (E, N)|	
-|	tm**		|				|	GAUSS-KR ** dg 3dg.z scale 1.0|	
+|	tm??		|				|	GAUSS-KR ?? dg 3dg.z scale 1.0|	
 |	mrc		|	B0 N0 Lc Ec	|		Mercator projection|	
-|	mrc0		|				Mercator Std Projection|	
+|	mrc0		|				|Mercator Std Projection|	
 |	lmb		|	B0 N0 Lc Ec Bc	|		Lambert conf. con.|	
 |	dlmb		|	B0 N0 Lc Ec B1 B2|		Lambert 2 par. c. con.|	
 |	elmb		|	B0 N0 Lc Ec B1 B2|		Lambert eql. c. con.|	
@@ -173,10 +174,10 @@ For example, in the UTM systems, they indicate where to put the zone number. In 
 |	lmbaps		|				|	Lambert equiv. pol. proj. (S)|	
 |	auth		|			|		Authalic geogr. Crd.|	
 |	**Region Europe**|	|	|	
-|	etrs-tm**		|	P.D.	|			etrs89 tm zone **|	
-|	ETRS-TM**	|	P.D.	|			etrs89 tm zone **|	
-|	etrs-lcc**		|	P.D.	|			etrs89 Lambert conf. con|	
-|	ETRS-LCC**	|	P.D.	|			etrs89 Lambert conf. con|	
+|	etrs-tm??		|	P.D.	|			etrs89 tm zone ??|	
+|	ETRS-TM??	|	P.D.	|			etrs89 tm zone ??|	
+|	etrs-lcc??		|	P.D.	|			etrs89 Lambert conf. con|	
+|	ETRS-LCC??	|	P.D.	|			etrs89 Lambert conf. con|	
 |	etrs-laea		|	P.D.	|			etrs89 Lmb Azimuthal Equal Area|	
 |	ETRS-LAEA	P.D.	|		|		etrs89 Lmb Azimuthal Equal Area|	
 |	**Region Denmark**|	|	|	
@@ -217,7 +218,7 @@ For example, in the UTM systems, they indicate where to put the zone number. In 
 |	gk*e		|	P.D.		|		conf. con, E-GR, qornoq|	
 |	**Region Estonia**|	 |	|	
 |	eel2p		|	P.D.	|			Estonian Lambert, 2 std par.|	
-|	eetm**	|		P.D.|				Estonian Gauss-Kr **, 3dg.z|	
+|	eetm??	|		P.D.|				Estonian Gauss-Kr ??, 3dg.z|	
 |	eetm*	|		P.D.	|			Estonian Gauss-Kr  *, 3dg.z|	
 |	eebm	|		P.D.		|		Estonian Basic Map|	
 |	eegeo	|		P.D.		|		geogr. crd, Pulkovo 1942|	
@@ -232,7 +233,6 @@ For example, in the UTM systems, they indicate where to put the zone number. In 
 |	**Region Iceland** |	|	 |	
 |	lmbhjo	|		P.D.	|			Lambert Conf. Con Hjørsey|	
  |	islmb		|	P.D.		|		Lambert Conf. Con wgs84 IS|	
-
 
 Where in the Suppl Param Collum: 
 
