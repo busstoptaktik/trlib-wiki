@@ -101,8 +101,8 @@ In order to avoid confusion when different stations in the same file are having 
 |IS |	Iceland          |
 |NO |Norway           |
 |SF |Finland          |
-|SE |Sveden           |
-|SV |Sveden  (Not used any longer)|          
+|SE |Sweden           |
+|SV |Sweden  (Not used any longer)|          
 |BE |	Belgium          |
 |CA |Canada           |
 |DE |Germany       |   
