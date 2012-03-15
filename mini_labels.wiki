@@ -194,7 +194,7 @@ For example, in the UTM systems, they indicate where to put the zone number. In 
 |	s34j		|	P.D.	|			System 1934 Jylland|	
 |	s34s		|	P.D.	|			System 1934 Sjælland|	
 |	s45b		|	P.D.	|			System 1945 Bornholm|	
-|	s34b		|	P.D.|			|		System 1945 Bornholm
+|	s34b		|	P.D.|			        System 1945 Bornholm|
 |	dm		|	P.D.	|			Dansk Merkator ed50|	
 |	gsgeo	|		P.D.		|		geogr. crd, gs|	
 |	gsbgeo	|		P.D.	|			geogr. crd, gsb|	
