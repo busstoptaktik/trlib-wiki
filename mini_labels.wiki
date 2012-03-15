@@ -277,105 +277,79 @@ Parent Datum indicates the structure in the datum-hierarchy used internally by t
 
 The character '@' at the start of some descriptions marks that this datum is only used in connection with one of the projection systems having a predefined datum.
 
-Coordinate
-
-Datum		Description				Parent datum	Ellipsoid
-
-wgs84		World Geodetic System 1984		ed50		WGS84
-
-etrf89		EUREF 89				wgs84		GRS80
-etrs89		EUREF 89				wgs84		GRS80
-euref89		EUREF 89				wgs84		GRS80
-
-gr96		Greenland Reference Frame 1996		wgs84		GRS80
-ed50		European Datum 1950			ed50		Hayford
-
-nad83g		North American D.1983 Greenland		nwl9d		GRS80
-qornoq		Qornok Datum 1927 (til WGS84)		nwl9d		Hayford
-scosd		Scoresbysund datum			nwl9d		Hayford
-ammlk		Ammassalik datum			nwl9d		Hayford
-
-
-feh10		Fehmarn Datum 2010            wgs84		GRS80
-
-s34j		@ System 1934 Jylland			ed50		Hayford
-s34s		@ System 1934 Sjælland			ed50		Hayford
-s45b		@ System 1945 Bornholm			ed50		Hayford
-gs		@ Generalst. Sys., Jyl. + Sjl		ed50		GS
-gsb		@ Generalst. System, Bornholm		ed50		GS
-os		@ Ostenfeldt System			ed50		Bessel
-kk		@ Københavns Komm. System		ed50		Dansk
-sb		@ Storebælts System			ed50		Hayford
-
-sbi		@ Storebælts System inv.			ed50		Hayford
-
-dks		@ DKS					ed50		Hayford
-asb		@ ASB					ed50		Hayford
-
-fd54		Færø Datum 1954				ed50		Hayford
-fg54		@ Geogr. FD 1954			etrf89		Hayford
-fg50		@ Færø, Geogr. ED 1950			etrf89		Hayford
-fk54		@ Konf. con.  FD 1954			etrf89		Hayford
-fu50		@ UTM 29, Topogr. grid, ED 50		etrf89		Hayford
-fk89		@ Konf. con. FD 1989 (NOT ETRF89)	etrf89		Hayford
-srt90g		SRT90, Sverige				wgs84		Bessel
-rt90g		RT90, Sverige				wgs84		Bessel
-
-rt90v		@ RT90v				ed50		Bessel
-rt38v		@ RT38v				ed50		Bessel
-rt38g		@ RT38g				ed50		Bessel
-
-ed87		European Datum 1987			ed50		Hayford
-wgs72		World Geodetic system 1972		nwl9d		WGS72
-nad83		North American Datum 1983		wgs84		GRS80
-nad27		North American D.1927, Conus		wgs84		Clarke66
-nad27c		North American D.1927, Canada		wgs84		Clarke66
-
-pu42		Pulkowo 1942, temporary			wgs84		Krassovsky
-
-island		Hjørsey datum 1955			wgs84		Hayford
-
-nwl9d		Naval Weapons Laboratory		wgs84		NWL9D
-
-ed79		European Datum 1979 			wgs84		Hayford
-dhdn		Deutsches Hauptdreiecksnetz		ed50		Bessel
-dhdnd		Deutsches Hauptdreiecksnetz		ed50		Bessel
-dhdn1		Deutsches Hauptdrnetz, DOEDOC		etrf89		Bessel
-dhdn2		Deutsches Hauptdrnetz, DOEDOC5p	ed50		Bessel
-dhdn3		Deutsches Hauptdrnetz, DOEDOC7p	ed50		Bessel
+|=Coordinate Datum|=Description|=Parent datum|=Ellipsoid|
+|wgs84|World Geodetic System 1984|ed50|WGS84|
+|etrf89|EUREF 89|wgs84|GRS80|
+|etrs89|EUREF 89|wgs84|GRS80|
+|euref89|EUREF 89|wgs84|GRS80|
+|gr96|Greenland Reference Frame 1996|wgs84|GRS80|
+|ed50|European Datum 1950|ed50|Hayford|
+|nad83g|North American D.1983 Greenland|nwl9d|GRS80|
+|qornoq|Qornok Datum 1927 (til WGS84)|nwl9d|Hayford|
+|scosd|Scoresbysund datum|nwl9d|Hayford|
+|ammlk|Ammassalik datum|nwl9d|Hayford|
+|feh10|Fehmarn Datum 2010|wgs84|GRS80|
+|s34j|@ System 1934 Jylland|ed50|Hayford|
+|s34s|@ System 1934 Sjælland|ed50|Hayford|
+|s45b|@ System 1945 Bornholm|ed50|Hayford|
+|gs|@ Generalst. Sys., Jyl. + Sjl|ed50|GS|
+|gsb|@ Generalst. System, Bornholm|ed50|GS|
+|os|@ Ostenfeldt System|ed50|Bessel|
+|kk|@ Københavns Komm. System|ed50|Dansk|
+|sb|@ Storebælts System|ed50|Hayford|
+|sbi|@ Storebælts System inv.|ed50|Hayford|
+|dks|@ DKS|ed50|Hayford|
+|asb|@ ASB|ed50|Hayford|
+|fd54|Færø Datum 1954|ed50|Hayford|
+|fg54|@ Geogr. FD 1954|etrf89|Hayford|
+|fg50|@ Færø, Geogr. ED 1950|etrf89|Hayford|
+|fk54|@ Konf. con.  FD 1954|etrf89|Hayford|
+|fu50|@ UTM 29, Topogr. grid, ED 50|etrf89|Hayford|
+|fk89|@ Konf. con. FD 1989 (NOT ETRF89)|etrf89|Hayford|
+|srt90g|SRT90, Sverige|wgs84|Bessel|
+|rt90g|RT90, Sverige|wgs84|Bessel|
+|rt90v|@ RT90v|ed50|Bessel|
+|rt38v|@ RT38v|ed50|Bessel|
+|rt38g|@ RT38g|ed50|Bessel|
+|ed87|European Datum 1987|ed50|Hayford|
+|wgs72|World Geodetic system 1972|nwl9d|WGS72|
+|nad83|North American Datum 1983|wgs84|GRS80|
+|nad27|North American D.1927, Conus|wgs84|Clarke66|
+|nad27c|North American D.1927, Canada|wgs84|Clarke66|
+|pu42|Pulkowo 1942, temporary|wgs84|Krassovsky|
+|island|Hjørsey datum 1955|wgs84|Hayford|
+|nwl9d|Naval Weapons Laboratory|wgs84|NWL9D|
+|ed79|European Datum 1979 |wgs84|Hayford|
+|dhdn|Deutsches Hauptdreiecksnetz|ed50|Bessel|
+|dhdnd|Deutsches Hauptdreiecksnetz|ed50|Bessel|
+|dhdn1|Deutsches Hauptdrnetz, DOEDOC|etrf89|Bessel|
+|dhdn2|Deutsches Hauptdrnetz, DOEDOC5p|ed50|Bessel|
+|dhdn3|Deutsches Hauptdrnetz, DOEDOC7p|ed50|Bessel|
+|eesti42|@ EESTI 1942|etrf89|Krassovsky|
+|ain1970|@ Ain El Abd 1970|wgs84|Hayford|
+|nahrwan|@ Nahrwan 1967|wgs84|Clarke80|
+|qng24|@ Qatar National Grid System 1924|wgs84|Hayford|
+|qbc2001|@ Qatar Bahrain Causeway (COWI)|wgs84|WGS84|
+|qnd1995|@ Qatar National Datum 1995|wgs84|Hayford|
 
 
-eesti42		@ EESTI 1942				etrf89		Krassovsky
-
-ain1970		@ Ain El Abd 1970			wgs84		Hayford
-nahrwan		@ Nahrwan 1967				wgs84		Clarke80
-qng24		@ Qatar National Grid System 1924		wgs84		Hayford
-qbc2001		@ Qatar Bahrain Causeway (COWI)		wgs84		WGS84
-qnd1995		@ Qatar National Datum 1995		wgs84		Hayford
-
-Vertical
-
-Datum		Description				Ellipsoid
-
-dvr90		@ Danish Vertical Ref Frame 1990		GRS80
-evrf2000		@ Eropean Vertical Ref Frame 2000		GRS80
-
-evrf2007		@ Eropean Vertical Ref Frame 2007		GRS80
-
-fvr09		@ Faroe Vertical Ref Frame 2009		GRS80
-msl		@ Mean Sea Level Frame			GRS80
+|=Vertical Datum|=Description|=Ellipsoid|
+|dvr90|@ Danish Vertical Ref Frame 1990|GRS80|
+|evrf2000|@ Eropean Vertical Ref Frame 2000|GRS80|
+|evrf2007|@ Eropean Vertical Ref Frame 2007|GRS80|
+|fvr09|@ Faroe Vertical Ref Frame 2009|GRS80|
+|msl|@ Mean Sea Level Frame|GRS80|
+|fscvr10|@ Fehmarn Vertical Reference 2010|GRS80|
+|dnn|@ DNN: gm91/gi44/h_msl|Hayford|
+|gm91|@ Gradmålingen 1891 height|GS|
+|gi44|@ G.I. 1944 Height system|Hayford|
+|kn44|@ Kbh. Nul 1944 kotesys.|Hayford|
+|ee1940|@ ESTONIA 1940 Vertical Frame|Krassovsky|
+|ee1948|@ ESTONIA 1948 Vertical Frame|Krassovsky|
+|ee1977|@ ESTONIA 1977 Vertical Frame|Krassovsky|
+|qnhd|@ Qatar National Height Datum|Hayford|
 
 
-fscvr10		@ Fehmarn Vertical Reference 2010		GRS80
-
-dnn		@ DNN: gm91/gi44/h_msl			Hayford
-gm91		@ Gradmålingen 1891 height		GS
-gi44		@ G.I. 1944 Height system			Hayford
-kn44		@ Kbh. Nul 1944 kotesys.			Hayford
-ee1940		@ ESTONIA 1940 Vertical Frame		Krassovsky
-ee1948		@ ESTONIA 1948 Vertical Frame		Krassovsky
-ee1977		@ ESTONIA 1977 Vertical Frame		Krassovsky
-qnhd		@ Qatar National Height Datum		Hayford
 
 As an example of a system demanding supplementing parameters we can use the ITM system. This system is (like the UTM) a transversal mercator system. In the ITM, you can via the extra parameters select the scale, central meridian and offsets for the coordinates.
 
