@@ -88,7 +88,12 @@ The inverse of **TR_TransformPoint**.
 
 
 ===Environment Variables:===
+
 * **TR_TABDIR:** Can be used to point to a relevant folder containing definition files and/or geoids distributed by KMS.
+
+=== Units: ===
+
+Note that coordinates in geographical systems "geo_xxx" are expected to be in **radians**. In the python bindings, **only**, a conversion from radians to degrees has been implemented, so that here the expected unit is degrees!
 
 === Definition files and geoid library: ===
 
