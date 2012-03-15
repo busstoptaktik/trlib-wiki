@@ -13,7 +13,7 @@ Hopefully lots of useful information will eventually find its way here.
 
 Slightly delayed, the brand new version of KMSTrLib (v. 1.0) has finally been released!
 
-Precompiled binaries for windows and updated geoid library will be available for download from the [[http://www.kms.dk/Emner/Referencenet/Koordinattransformation/|KMS website]] by then.
+Precompiled binaries for windows and updated geoid library will be available for download from the [[http://www.kms.dk/Emner/Referencenet/Koordinattransformation/|KMS website]] by the end of week 11.
 
 Also, a new version of the GUI application KMSTRANS, build on the same transformation code, will be available for download shortly after (beginning of week 12). 
 
