@@ -130,109 +130,106 @@ Other elements contained in the "Suppl param" column indicate which extra parame
 
 The extra parameters are in a file written right after the 'normal' label, using double spaces and/or NL's as separators.
 
-Reading of a MiniLabel from a 'Label File' is selected from the System Drop down lists:
-
-Select the item 'Label from File' at the bottom of the list.
-
 The character '*' found in some of the coordinate system names in the list below are place holders for ciphers.
 
 For example, in the UTM systems, they indicate where to put the zone number. In the Conical Systems used in Greenland, the zones are called cones (numbered from 1 to 8) and the '*' character tells where to put the 'cone number’ 
 
 
-
-|=MiniName		|=Suppl Param|=Description|
+|=MiniName|=Suppl Param|=Description|
 |**Global Systems**| | |
-|crt|					|	Cartesian 3-d coord|	
-|	geo|					|		Geographical coord (Lat, Lon)|	
-|	geoi	|				|		Geographical coord (Lon, Lat)|	
-|	utm**|				|		UTM zone ?? (?? = 2 digits) (N,E) |	
-|	utmi??|				|		UTM zone ?? (?? = 2 digits) (E,N) |	
-|	utm??n	|			|				UTM zone ??, North. LAT (N,E)|	
-|	utmi??n	|			|			UTM zone ??, North. LAT (E,N)|	
-|	utm??s	|			|			UTM zone ??, South. LAT (S,E)|	
-|	utmi??s	|			|			UTM zone ??, South. LAT (E,S)|	
-|	itm		|	B0 N0 Lc Ec Scale|			TM, general GAUSS-KR (N, E)|	
-|	itmi		|	B0 N0 Lc Ec Scale|			TM, general GAUSS-KR (E, N)|	
-|	tm??		|				|	GAUSS-KR ?? dg 3dg.z scale 1.0|	
-|	mrc		|	B0 N0 Lc Ec	|		Mercator projection|	
-|	mrc0		|				|Mercator Std Projection|	
-|	lmb		|	B0 N0 Lc Ec Bc	|		Lambert conf. con.|	
-|	dlmb		|	B0 N0 Lc Ec B1 B2|		Lambert 2 par. c. con.|	
-|	elmb		|	B0 N0 Lc Ec B1 B2|		Lambert eql. c. con.|	
-|	npstg		|				|	North polar stereographic|	
-|	spstg		|	|				South polar stereographic|	
-|	upsn			|			|	Universal polar stereogr N|	
-|	upss			|	|			Universal polar stereogr S|	
-|	stg		|	Bc Nc Lc Ec scale|			Stereogr. projection|	
-|	estg		|	Bc Nc Lc Ec B1 B2	|	Eql. Stereogr. projection|	
-|	bnstg		|	B1 scale		|		NP. Stereogr. scale at B1|	
-|	bsstg		|	B1 scale			|	SP. Stereogr. scale at B1|	
-|	safle		|				|	Sansom-Flamsteed eq.pr., ell.|	
-|	safl			|			|	Sansom-Flamsteed equiv. proj.|	
-|	lmbac			|			|	Lambert equiv. cyl. proj.|	
-|	lmbap		|				|	Lambert equiv. pol. proj. (N)|	
-|	lmbaps		|				|	Lambert equiv. pol. proj. (S)|	
-|	auth		|			|		Authalic geogr. Crd.|	
-|	**Region Europe**|	|	|	
-|	etrs-tm??		|	P.D.	|			etrs89 tm zone ??|	
-|	ETRS-TM??	|	P.D.	|			etrs89 tm zone ??|	
-|	etrs-lcc??		|	P.D.	|			etrs89 Lambert conf. con|	
-|	ETRS-LCC??	|	P.D.	|			etrs89 Lambert conf. con|	
-|	etrs-laea		|	P.D.	|			etrs89 Lmb Azimuthal Equal Area|	
-|	ETRS-LAEA	P.D.	|		|		etrs89 Lmb Azimuthal Equal Area|	
-|	**Region Denmark**|	|	|	
-|	dktm1	|		P.D.	|			DK TM1 etrf89 (E, N)|	
-|	dktm2	|		P.D.	|			DK TM2 etrf89 (E, N)|	
-|	dktm3	|		P.D.	|			DK TM3 etrf89 (E, N)|	
-|	dktm4	|		P.D.	|			DK TM4 etrf89 (E, N)|	
-|	kfmr		|	P.D.		|		Kbh Frb Metroring, etrf89|	
-|	kp2000j	|		P.D.	|			System 2000 Jylland, etrf89|	
-|	kp2000s	|		P.D.	|			System 2000 Sjælland, etrf89|	
-|	kp2000b	|		P.D.	|			System 2000 Bornholm, etrf89|	
-|	dmrc		|	P.D.	|			Dansk Merkator etrf89|	
-|	fcs		|	P.D.	|			Fehmarn Coordinate System|	
-|	s34j		|	P.D.	|			System 1934 Jylland|	
-|	s34s		|	P.D.	|			System 1934 Sjælland|	
-|	s45b		|	P.D.	|			System 1945 Bornholm|	
-|	s34b		|	P.D.|			        System 1945 Bornholm|
-|	dm		|	P.D.	|			Dansk Merkator ed50|	
-|	gsgeo	|		P.D.		|		geogr. crd, gs|	
-|	gsbgeo	|		P.D.	|			geogr. crd, gsb|	
-|	gs		|	P.D.		|		GS conf. con. DK|	
-|	gsb		|	P.D.		|		GS conf. con. Bornholm|	
-|	kk		|	P.D.		|		Kbh. komm. system|	
-|	os	|		P.D.		|		Ostenfeldt system|	
-|	asb	|		P.D.		|			Øresund bridge proj.|	
-|	Dks		|	P.D.		|		Øresund bridge proj, special|	
-|	Sb		|	P.D.	|			SB bridge proj.|	
-|	Sbf	|		P.D.		|		SB bridge proj., inverted|	
-|	**Region Faroe Islands**|	|	|	
-|	fke	|		P.D.		|		Conf. con. FO, euref89|	
-|	fg50	|		P.D.	|			FO geogr. crd, ed50|	
-|	fu50	|		P.D.	|			utm zone 29, top_ed50|	
-|	fg54	|		P.D.		|		FO geogr. crd, fd54|	
-|	fk54	|		P.D.		|		Conf. con. FO, fd 54|	
-|	fk89		|	P.D.		|		Conf. con. FO, fd 54a|	
-|	**Region Greenland**| 	|	|	
-|	gk*w		|	P.D.		|		conf. con, W-GR, qornoq|	
-|	gk*e		|	P.D.		|		conf. con, E-GR, qornoq|	
-|	**Region Estonia**|	 |	|	
-|	eel2p		|	P.D.	|			Estonian Lambert, 2 std par.|	
-|	eetm??	|		P.D.|				Estonian Gauss-Kr ??, 3dg.z|	
-|	eetm*	|		P.D.	|			Estonian Gauss-Kr  *, 3dg.z|	
-|	eebm	|		P.D.		|		Estonian Basic Map|	
-|	eegeo	|		P.D.		|		geogr. crd, Pulkovo 1942|	
-|	eecrt		|	P.D.		|		Cartesic crd, Pulkovo 1942|	
-|	eelmne	|		P.D.	|			Estonian Lmb 2 par., epv37|	
-|	eelmse	|		P.D.	|			Estonian Lmb 2 par., epv37|	
-|	**Region Sweden**|	|	|	
-|	rt38g		|	P.D.	|			RT38g, 2.5 gon vest|	
-|	rt90g		|			|		RT90g, 2.5 gon vest|	
-|	rt90v		|	P.D.		|		RT90v, spec. for dks|	
-|	rt38v	|		P.D.		|		RT38v, spec. for dks|	
-|	**Region Iceland** |	|	 |	
-|	lmbhjo	|		P.D.	|			Lambert Conf. Con Hjørsey|	
- |	islmb		|	P.D.		|		Lambert Conf. Con wgs84 IS|	
+|crt| |Cartesian 3-d coord|
+|geo| |Geographical coord (Lat, Lon)|
+|geoi| |Geographical coord (Lon, Lat)|
+|utm**| |UTM zone ?? (?? = 2 digits) (N,E) |
+|utmi??| |UTM zone ?? (?? = 2 digits) (E,N) |
+|utm??n| |UTM zone ??, North. LAT (N,E)|
+|utmi??n| |UTM zone ??, North. LAT (E,N)|
+|utm??s| |UTM zone ??, South. LAT (S,E)|
+|utmi??s| |UTM zone ??, South. LAT (E,S)|
+|itm|B0 N0 Lc Ec Scale|TM, general GAUSS-KR (N, E)|
+|itmi|B0 N0 Lc Ec Scale|TM, general GAUSS-KR (E, N)|
+|tm??| |GAUSS-KR ?? dg 3dg.z scale 1.0|
+|mrc|B0 N0 Lc Ec|Mercator projection|
+|mrc0| |Mercator Std Projection|
+|lmb|B0 N0 Lc Ec Bc|Lambert conf. con.|
+|dlmb|B0 N0 Lc Ec B1 B2|Lambert 2 par. c. con.|
+|elmb|B0 N0 Lc Ec B1 B2|Lambert eql. c. con.|
+|npstg| |North polar stereographic|
+|spstg| |South polar stereographic|
+|upsn| |Universal polar stereogr N|
+|upss| |Universal polar stereogr S|
+|stg|Bc Nc Lc Ec scale|Stereogr. projection|
+|estg|Bc Nc Lc Ec B1 B2|Eql. Stereogr. projection|
+|bnstg|B1 scale|NP. Stereogr. scale at B1|
+|bsstg|B1 scale|SP. Stereogr. scale at B1|
+|safle| |Sansom-Flamsteed eq.pr., ell.|
+|safl| |Sansom-Flamsteed equiv. proj.|
+|lmbac| |Lambert equiv. cyl. proj.|
+|lmbap| |Lambert equiv. pol. proj. (N)|
+|lmbaps| |Lambert equiv. pol. proj. (S)|
+|auth| |Authalic geogr. Crd.|
+|**Region Europe**| ||
+|etrs-tm??|P.D.|etrs89 tm zone ??|
+|ETRS-TM??|P.D.|etrs89 tm zone ??|
+|etrs-lcc??|P.D.|etrs89 Lambert conf. con|
+|ETRS-LCC??|P.D.|etrs89 Lambert conf. con|
+|etrs-laea|P.D.|etrs89 Lmb Azimuthal Equal Area|
+|ETRS-LAEAP.D.| |etrs89 Lmb Azimuthal Equal Area|
+|**Region Denmark**| ||
+|dktm1|P.D.|DK TM1 etrf89 (E, N)|
+|dktm2|P.D.|DK TM2 etrf89 (E, N)|
+|dktm3|P.D.|DK TM3 etrf89 (E, N)|
+|dktm4|P.D.|DK TM4 etrf89 (E, N)|
+|kfmr|P.D.|Kbh Frb Metroring, etrf89|
+|kp2000j|P.D.|System 2000 Jylland, etrf89|
+|kp2000s|P.D.|System 2000 Sjælland, etrf89|
+|kp2000b|P.D.|System 2000 Bornholm, etrf89|
+|dmrc|P.D.|Dansk Merkator etrf89|
+|fcs|P.D.|Fehmarn Coordinate System|
+|s34j|P.D.|System 1934 Jylland|
+|s34s|P.D.|System 1934 Sjælland|
+|s45b|P.D.|System 1945 Bornholm|
+|s34b|P.D.|    System 1945 Bornholm|
+|dm|P.D.|Dansk Merkator ed50|
+|gsgeo|P.D.|geogr. crd, gs|
+|gsbgeo|P.D.|geogr. crd, gsb|
+|gs|P.D.|GS conf. con. DK|
+|gsb|P.D.|GS conf. con. Bornholm|
+|kk|P.D.|Kbh. komm. system|
+|os|P.D.|Ostenfeldt system|
+|asb|P.D.|Øresund bridge proj.|
+|Dks|P.D.|Øresund bridge proj, special|
+|Sb|P.D.|SB bridge proj.|
+|Sbf|P.D.|SB bridge proj., inverted|
+|**Region Faroe Islands**| ||
+|fke|P.D.|Conf. con. FO, euref89|
+|fg50|P.D.|FO geogr. crd, ed50|
+|fu50|P.D.|utm zone 29, top_ed50|
+|fg54|P.D.|FO geogr. crd, fd54|
+|fk54|P.D.|Conf. con. FO, fd 54|
+|fk89|P.D.|Conf. con. FO, fd 54a|
+|**Region Greenland**| | |
+|gk?w|P.D.|conf. con, W-GR, qornoq|
+|gk?e|P.D.|conf. con, E-GR, qornoq|
+|**Region Estonia**| | |
+|eel2p|P.D.|Estonian Lambert, 2 std par.|
+|eetm??|P.D.|Estonian Gauss-Kr ??, 3dg.z|
+|eetm?|P.D.|Estonian Gauss-Kr ?, 3dg.z|
+|eebm|P.D.|Estonian Basic Map|
+|eegeo|P.D.|geogr. crd, Pulkovo 1942|
+|eecrt|P.D.|Cartesic crd, Pulkovo 1942|
+|eelmne|P.D.|Estonian Lmb 2 par., epv37|
+|eelmse|P.D.|Estonian Lmb 2 par., epv37|
+|**Region Sweden**| ||
+|rt38g|P.D.|RT38g, 2.5 gon vest|
+|rt90g| |RT90g, 2.5 gon vest|
+|rt90v|P.D.|RT90v, spec. for dks|
+|rt38v|P.D.|RT38v, spec. for dks|
+|**Region Iceland** | | |
+|lmbhjo|P.D.|Lambert Conf. Con Hjørsey|
+ |islmb|P.D.|Lambert Conf. Con wgs84 IS|
+
+
 
 Where in the Suppl Param Collum: 
 
@@ -331,6 +328,8 @@ The character '@' at the start of some descriptions marks that this datum is onl
 |qng24|@ Qatar National Grid System 1924|wgs84|Hayford|
 |qbc2001|@ Qatar Bahrain Causeway (COWI)|wgs84|WGS84|
 |qnd1995|@ Qatar National Datum 1995|wgs84|Hayford|
+
+====Vertical Datums====
 
 
 |=Vertical Datum|=Description|=Ellipsoid|
