@@ -15,6 +15,24 @@ x,y,z=ct.Transform(512200.1,6143200.1,100.0)
 ct.Close()
 }}}
 
+An inverse transformation method is also implemented in python:
+
+{{{
+#!python
+ct=TrLib.CoordinateTransformation("utm32Ewgs84","utm32Eed50")
+x,y,z=ct.Transform(512200.1,6143200.1,100.0)
+x,y,z=ct.InverseTransform(x,y,z)
+}}}
+And you should get the original input back!
+
+The Transform method is "overloaded" so that it will accept:
+
+* Coordinates: x,y or x,y,z
+* Lists or tuples of coordinates: e.g. {{{ [[10.23,55.10],[11.12,56.14],...,[x,y]] }}}
+* If numpy is available, numpy arrays of shape (n,2) or (n,3).
+
+Note that generally geographical coordinates are expected to be in **radians**. However, for the python bindings degrees are expected (and automatically converted to radians.)
+ 
 === Java ===
 
 The java interface to TrLib uses JNI. The JNI-functions can be put in an intermediate shared library linked to TrLib or they can be put directly into TrLib itself.
@@ -40,4 +58,42 @@ public class TestProgram{
 }
 }}}
 
+Currently, the Transform method in java is overloaded to accept three input arrays of doubles, X,Y,Z, or only two X,Y.
+
+=== C# ===
+
+The C#-bindings work very similarly to the java and python bindings:
+
+{{{
+#!c#
+
+namespace Kmstrlib.NET
+{
+	class TestProgram
+	{
+		static void Main(string[] args)
+		{
+			TrLib.TR_Error  error;
+			error = TrLib.InitLibrary(args[0]);
+			System.Console.WriteLine("Loading functions from {0}",TrLib.TRLIB);
+			string version=TrLib.GetVersion();
+			System.Console.WriteLine("This is TrLib. v. {0}\n",version);
+                        /* Tell TrLib, that we allow unsafe transformations */ 
+			TrLib.SetThreadMode(false);
+			/*test various versions of overloaded transformation method*/ 
+			CoordinateTransformation tr=new CoordinateTransformation("utm32Ewgs84","utm33Eed50");
+			Point pt =new Point(512200.1,6143200.2,100.0);
+			error=tr.Transform(pt);
+			double x=512200.1,y=6143200.1,z=100.0;
+                        error=tr.Transform(ref x, ref y, ref z);
+                        /* or we could do */
+                        error=tr.Transform(512200.1,6143200.1,100.0,out x, out y, out z);
+                        /* really, really remember to close down */
+                        tr.Close()
+                        }
+     }
+}
+}}}
+
+The Transform method is also overloaded to accept array input. See Interface.cs.
  
