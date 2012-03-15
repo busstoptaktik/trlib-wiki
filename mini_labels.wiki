@@ -130,9 +130,9 @@ Other elements contained in the "Suppl param" column indicate which extra parame
 
 The extra parameters are in a file written right after the 'normal' label, using double spaces and/or NL's as separators.
 
-The character '*' found in some of the coordinate system names in the list below are place holders for ciphers.
+The character '?' found in some of the coordinate system names in the list below are place holders for ciphers.
 
-For example, in the UTM systems, they indicate where to put the zone number. In the Conical Systems used in Greenland, the zones are called cones (numbered from 1 to 8) and the '*' character tells where to put the 'cone number’ 
+For example, in the UTM systems, they indicate where to put the zone number. In the Conical Systems used in Greenland, the zones are called cones (numbered from 1 to 8) and the '?' character tells where to put the 'cone number’ 
 
 
 |=MiniName|=Suppl Param|=Description|
@@ -227,11 +227,11 @@ For example, in the UTM systems, they indicate where to put the zone number. In 
 |rt38v|P.D.|RT38v, spec. for dks|
 |**Region Iceland** | | |
 |lmbhjo|P.D.|Lambert Conf. Con Hjørsey|
- |islmb|P.D.|Lambert Conf. Con wgs84 IS|
+|islmb|P.D.|Lambert Conf. Con wgs84 IS|
 
 
 
-Where in the Suppl Param Collum: 
+Where in the supplemenatry parameters column: 
 
 |=Abbrv.|=Meaning|
 |P.D.	|	Predefined Datum|
