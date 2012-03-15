@@ -94,6 +94,12 @@ namespace Kmstrlib.NET
      }
 }
 }}}
-
 The Transform method is also overloaded to accept array input. See Interface.cs.
+
+===Thread Safety===
+
+All the bindings have a metod called {{{SetThreadMode(bool on/off)}}}. When called with "true" only thread safe transformations are allowed (default). If running in single threaded mode use {{{SetThreadMode(false)}}} to also allow unsafe transformations (currently only Fehmarn-transformations).
  
+===Translation of MiniLabels ===
+
+Currently a method, GetEsriText, which translated a MiniLabel to ESRI-flavoured wkt is exposed in the python bindings. We plan to expose this method, and also translations to/from EPSG-codes, in all bindings in coming releases.
