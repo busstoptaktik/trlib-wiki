@@ -97,12 +97,13 @@ The definition file def_lab.txt is needed in order to perform any transformation
 If the user wants to perform 3d-transformations, involving e.g. various height systems, a proper geoid library distributed by KMS on releases should be pointed to by InitLibrary. However it is possible to do 2d-transformations without any geoid library, as long as def_lab.txt can be located.
 
 ===Possible setups:===
+Below "def-files" refer to the two necessary definition files def_lab.txt and def_shp.txt.
 
-* Location of def_lab.txt , def_shp.txt,Possible transformations,Call to TR_InitLibrary
-*In geoid folder pointed to by TR_TABDIR, 2d and 3d, TR_InitLibrary(“”)
-*In geoid folder, 2d and 3d, TR_InitLibrary(path_to_folder)
-*In “current directory”, 2d, TR_InitLibrary(“”)
-*In some folder. No geoids in that folder or in “current directory”, 2d,TR_InitLibrary(path_to_folder)
+|**Location of def-files**|**Possible transformations**|**Call to TR_InitLibrary**|
+|In geoid folder,\\pointed to by TR_TABDIR|2d and 3d     | TR_InitLibrary(“”)|
+|In geoid folder| 2d and 3d         |TR_InitLibrary(path_to_folder)|
+|In “current directory”| 2d | TR_InitLibrary(“”)|
+|In some folder.\\No geoids there or in “cwd”| 2d |TR_InitLibrary(path_to_folder)|
 
 ===Thread Safety===
 
