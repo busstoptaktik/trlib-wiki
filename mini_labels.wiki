@@ -4,7 +4,6 @@ An in detail description of mini labels will be distributed with releases. A sim
 
 Among the new mini labels in the recent release are:
 
-* fotm - Faroe Transverse Mercator.
 * webmrc - Web Mercator.
 * fcs - Fehmarn projection.
 
