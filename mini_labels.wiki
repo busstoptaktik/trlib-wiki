@@ -7,6 +7,8 @@ Among the new mini labels in the recent release are:
 * webmrc - Web Mercator.
 * fcs - Fehmarn projection.
 
+A new projection for the Faroe Islands is also included with the minilabel "fotm". However this projection is still under development and should be considered in "alpha" mode!
+
 === KMS Coordinate MiniLabels ===
 
 MiniLabels were introduced to identify and read geodetic data (coordinates and observations). The concept of MiniLabels is used in the KMS Standard Format and in some other formats, when no description of coordinate system and datum may be found.
