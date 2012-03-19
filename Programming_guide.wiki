@@ -146,7 +146,7 @@ int main(void) {
     TR *trf;
     TR_GetVersion(ver,128);
     printf("TrLib version %s\n",ver);
-    is_init=TR_InitLibrary("");
+    is_init=(TR_InitLibrary("")==TR_OK);
     if (!is_init)
         exit(FAILURE);
     trf=TR_Open("utm32Ewgs84","utm33Eed50","");
