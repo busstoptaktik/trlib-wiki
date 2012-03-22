@@ -162,7 +162,7 @@ Transform data from file argv[3], write to file argv[4]. Input  data reference s
 {{{
 #!c
 #include <stdio.h>
-#include "trlib.h"
+#include "trlib_api.h"
 
 int main (int argc, char *argv[]) {
     TR *tr;
