@@ -16,6 +16,8 @@ Precompiled binaries for windows and updated geoid library will be available for
 
 Links to the ftp server will also be available (soon) from [[http://www.kms.dk/Emner/Referencenet/Koordinattransformation/| the KMS wbesite for coordinate transformation]].
 
+A compatible Geoid library (Geoids2012) can be found as well the ftp-server.
+
 
 Also, a new version of the GUI application KMSTRANS, build on the same transformation code, will be available for download from the same website. 
 
