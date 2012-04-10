@@ -11,6 +11,7 @@ Hopefully lots of useful information will eventually find its way here.
 
 === Notes on release ===
 The brand new version of KMSTrLib (v. 1.0) will be released during week 12. Developers who want to compile the code should download from the tip of the 1.0 release branch.
+A bugfix has been applied to the release. Current version is 1.01 (tagged in 1.0 release branch).
 
 Precompiled binaries for windows and updated geoid library (Geoids2012) will be available for download from the [[ftp://ftp.kms.dk/download/transformationsprogram/|KMS ftp server]] in week 12.
 
