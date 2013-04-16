@@ -3,12 +3,23 @@
 A preliminary guide to programming with KMSTrLib.
 See also the section on [[Bindings|bindings to high level languages.]]
 
-=== Exposed functions: ===
+=== Exposed functions and constants: ===
 
-In the coming release the following functions will be exposed in the API:
+In the coming release the following functions and constants will be exposed in the API:
 
 {{{
 #!c
+/*return codes*/
+#define TR_OK             (0)
+#define TR_LABEL_ERROR    (1)
+#define TR_ERROR             (2)
+#define TR_ALLOCATION_ERROR  (3)
+
+/* Defines for export to foreign srs-metadata */
+
+#define TR_FRMT_EPSG  (0)
+#define TR_FRMT_PROJ4 (1)
+#define TR_FRMT_ESRI_WKT (2)
 
 KMSTR_API int   TR_InitLibrary(char *path);
 KMSTR_API int   TR_SetGeoidDir(char *path);
@@ -23,16 +34,16 @@ KMSTR_API void  TR_ForbidUnsafeTransformations(void);
 typedef struct  TR TR;
 KMSTR_API void  TR_GeoidInfo(TR *tr);
 KMSTR_API int   TR_GetLocalGeometry(TR *tr, double x, double y, double *m, double *c, int is_proj_out);
-KMSTR_API TR    *TR_Open (char *label_in, char *label_out, char *geoid_name);
-KMSTR_API int    TR_Insert (TR *tr, char *mlb, int is_out);
-KMSTR_API int    TR_Transform(TR *tr, double *X, double *Y, double *Z, int n);
-KMSTR_API int    TR_InverseTransform(TR *tr, double *X, double *Y, double *Z, int n);
-KMSTR_API int    TR_Transform2(TR *tr, double *X_in, double *Y_in, double *Z_in, double *X_out, double *Y_out, double *Z_out, int n);
-KMSTR_API int    TR_InverseTransform2(TR *tr, double *X_in, double *Y_in, double *Z_in, double *X_out, double *Y_out, double *Z_out, int n);
-KMSTR_API int    TR_TransformPoint(TR *tr, double X_in, double Y_in, double Z_in, double *X_out, double *Y_out, double *Z_out);
-KMSTR_API int    TR_InverseTransformPoint(TR *tr, double X_in, double Y_in, double Z_in, double *X_out, double *Y_out, double *Z_out);
-KMSTR_API void   TR_Close (TR *tr);
-KMSTR_API int    TR_Stream(TR *tr, FILE *f_in, FILE *f_out, int n);
+KMSTR_API TR   *TR_Open (char *label_in, char *label_out, char *geoid_name);
+KMSTR_API int   TR_Insert (TR *tr, char *mlb, int is_out);
+KMSTR_API int   TR_Transform(TR *tr, double *X, double *Y, double *Z, int n);
+KMSTR_API int   TR_InverseTransform(TR *tr, double *X, double *Y, double *Z, int n);
+KMSTR_API int   TR_Transform2(TR *tr, double *X_in, double *Y_in, double *Z_in, double *X_out, double *Y_out, double *Z_out, int n);
+KMSTR_API int   TR_InverseTransform2(TR *tr, double *X_in, double *Y_in, double *Z_in, double *X_out, double *Y_out, double *Z_out, int n);
+KMSTR_API int   TR_TransformPoint(TR *tr, double X_in, double Y_in, double Z_in, double *X_out, double *Y_out, double *Z_out);
+KMSTR_API int   TR_InverseTransformPoint(TR *tr, double X_in, double Y_in, double Z_in, double *X_out, double *Y_out, double *Z_out);
+KMSTR_API void  TR_Close (TR *tr);
+KMSTR_API int   TR_Stream(TR *tr, FILE *f_in, FILE *f_out, int n);
 
 /***************************************
 **********LORD module functions ********
