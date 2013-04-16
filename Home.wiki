@@ -10,15 +10,13 @@ Hopefully lots of useful information will eventually find its way here.
 * [[Bindings|Bindings to high level languages.]]
 
 === Notes on release ===
-The brand new version of KMSTrLib (v. 1.0) will be released during week 12. Developers who want to compile the code should download from the tip of the 1.0 release branch.
-A bugfix has been applied to the release. Current version is 1.01 (tagged in 1.0 release branch).
 
-Precompiled binaries for windows and updated geoid library (Geoids2012) will be available for download from the [[ftp://ftp.kms.dk/download/transformationsprogram/|KMS ftp server]] in week 12.
+We plan to release a new version of trlib around the first of May 2013.
 
-Links to the ftp server will also be available (soon) from [[http://www.kms.dk/Emner/Referencenet/Koordinattransformation/| the KMS wbesite for coordinate transformation]].
+Precompiled binaries for windows and updated geoid library for the previous release 1.01 are available for download from the [[ftp://ftp.kms.dk/download/transformationsprogram/|GST ftp server]].
 
+Links to the ftp server will also be available (soon) from [[http://www.gst.dk/Emner/Referencenet/Koordinattransformation/| the GST wbesite for coordinate transformation]].
 
-Also, a new version of the GUI application KMSTRANS, build on the same transformation code, will be available for download from the same website. 
 
 === Build procedures ===
 
