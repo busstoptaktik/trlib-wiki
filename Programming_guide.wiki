@@ -83,6 +83,8 @@ KMSTR_API void TR_SetLordFile(char *fullfilename);
 
 }}}
 
+=== Details ===
+
 * **int TR_InitLibrary(char *path):**
 
 Sets tabdir/geoid folder to input string and initialises various global resources. If the input string is empty, the function will look for input from environment variable TR_TABDIR. If the user wants to perform 3d-transformations the directory pointed to here should be a valid geoid library distributed by KMS. 
@@ -98,10 +100,6 @@ Writes version info to buffer.
 * **int TR_GetLastError(void):** 
 
 Returns extended error code.
-
-* **int TR_GetEsriText(char *label_in, char *wkt_out):**
- 
-Translates minilabel to ESRI-flavoured wkt. Requires file def_shp.txt in current working directory or tabdir defined in TR_InitLibrary. Works for most common minilabels.
 
 * **void TR_TerminateLibrary(void):** 
 
@@ -131,8 +129,6 @@ Close a TR-object, frees the resources allocated in the object. Previously calle
 
 Transform points from/to file objects. Previously called trstream.
 
-==== New functions: ====
-
 * ** void TR_AllowUnsafeTransformations(void):** 
 
 If running in single threaded mode, allow transformations which are NOT thread safe. These are disabled by default.
@@ -144,7 +140,7 @@ Allows only thread safe transformations. This feature is enabled by default!
 
 Perform inverse of transformation defined in TR-object tr.
 
-====A few more wrappers of the transformation procedure have been implemented as well:====
+====A few more wrappers of the transformation procedure ====
 
 * **int TR_Transform2(TR *tr, double *X_in, double *Y_in, double *Z_in, double *X_out, double *Y_out, double *Z_out, int n):** 
 
@@ -159,9 +155,29 @@ A 'point' version of **TR_Transform2** where input are coordinates by value and 
 
 The inverse of **TR_TransformPoint**.
 
+====**Additions:**====
+
+* **TR_ImportLabel**:
+
+Imports a mini label from a foreign srs metadata description like e.g. EPSG code, (ESRI) wkt or Proj4 syntax. Example:
+{{{
+#!c
+TR_ImportLabel("EPSG:4326",mlb);
+}}}  
+should copy "geo_wgs84" into mlb.
+
+* **TR_ExportLabel**:
+
+Exports a mini label into a foreign metadata format. For example
+{{{
+#!c
+ TR_ExportLabel("geo_wgs84",text,TR_FRMT_PROJ4,512);
+}}}
+should copy "+proj=latlong +datum=WGS84" to text.
+
 ====**Deprecated:**====
 
-* The wrapper of **TR_Open**, **TR_Transform** and **TR_Close** previously called **TR_Transform**, has been deprecated! 
+* **TR_GetEsriText** is deprecated, use **TR_ExportLabel** instead. 
 
 
 ===Environment Variables:===
