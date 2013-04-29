@@ -207,18 +207,41 @@ Newly added functions:
 Imports a mini label from a foreign srs metadata description like e.g. EPSG code, (ESRI) wkt or Proj4 syntax. Example:
 {{{
 #!c
-TR_ImportLabel("EPSG:4326",mlb);
+ok=TR_ImportLabel("EPSG:4326",mlb);
 }}}  
-should copy "geo_wgs84" into mlb.
+should copy "geo_wgs84" into mlb. Returns TR_OK on success.
 
 * **TR_ExportLabel**:
 
 Exports a mini label into a foreign metadata format. For example
 {{{
 #!c
- TR_ExportLabel("geo_wgs84",text,TR_FRMT_PROJ4,512);
+ok=TR_ExportLabel("geo_wgs84",text,TR_FRMT_PROJ4,512);
 }}}
-should copy "+proj=latlong +datum=WGS84" to text.
+should copy "+proj=latlong +datum=WGS84" to text. Will return TR_OK on success.
+
+* **TR_Insert**:
+Inserts a projection into a transformation object TR, at either the sys_in=0 or the sys_out=1 slot. Allows for reuse of TR-objects. Example:
+
+{{{
+#!c
+ok=TR_Insert(trf,"geo_wgs84",1);
+}}}
+will set the output projection of the transformation trf to "geo_wgs84". Returns TR_OK on succes.
+
+* **TR_GetLocalGeometry**:
+
+Gets scale and meridian convergence of a projection contained in a TR-object. Example:
+{{{
+#!c
+ok= TR_GetLocalGeometry(trf, x, y, &m, &c, 1);
+}}}
+will copy the meridian convergence and scale of the output projection of trf to the doubles m and c.
+
+* **LORD (LOgging, Reporting and Debugging) module functions**:
+
+A range of functions to capture error, debug and info messages from trlib have been added to the API. Refer to  the documentation in the API header above.
+
 
 ====**Deprecated:**====
 
