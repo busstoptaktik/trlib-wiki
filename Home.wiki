@@ -1,7 +1,6 @@
 == (KMS) TrLib ==
 
-Welcome to this first version of the TrLib wiki. 
-Hopefully lots of useful information will eventually find its way here.
+Welcome to the trlib wiki.
 
 === Other pages with documentation ===
 
