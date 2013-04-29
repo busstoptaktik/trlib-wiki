@@ -37,6 +37,7 @@ We have been able to compile and test the code on the following systems:
 * Ubuntu 10.10 (32 bit, i686): gcc 4.4.5
 * Ubuntu 10.10 (64 bit, x86_64): gcc 4.4.5
 * SunOS (Sparc): Sun C 5.9
+* Has also been compiled for Android using the [[http://developer.android.com/tools/sdk/ndk/index.html|Android NDK]]
 
 === Tested, but not really supported ===
 
