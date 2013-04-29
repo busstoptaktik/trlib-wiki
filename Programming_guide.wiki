@@ -5,6 +5,8 @@ See also the section on [[Bindings|bindings to high level languages.]]
 
 === Exposed functions and constants: ===
 
+See also the [[Release_News|release news page.]]
+
 In the coming release the following functions and constants will be exposed in the API:
 
 {{{
