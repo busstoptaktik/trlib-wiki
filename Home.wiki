@@ -13,6 +13,8 @@ Hopefully lots of useful information will eventually find its way here.
 
 We plan to release a new version of trlib around the first of May 2013.
 
+See the [[Release_news|Release news page.]]
+
 Precompiled binaries for windows and updated geoid library for the previous release 1.01 are available for download from the [[ftp://ftp.kms.dk/download/transformationsprogram/|GST ftp server]].
 
 Links to the ftp server will also be available (soon) from [[http://www.gst.dk/Emner/Referencenet/Koordinattransformation/| the GST wbesite for coordinate transformation]].
