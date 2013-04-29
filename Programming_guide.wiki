@@ -195,79 +195,10 @@ typedef void( *LORD_CALLBACK )(LORD_CLASS, int , const char *);
 
 }}}
 
-=== Details ===
-
-* **int TR_InitLibrary(char *path):**
-
-Sets tabdir/geoid folder to input string and initialises various global resources. If the input string is empty, the function will look for input from environment variable TR_TABDIR. If the user wants to perform 3d-transformations the directory pointed to here should be a valid geoid library distributed by KMS. 
-
-Returns TR_OK on success, TR_ERROR otherwise (note: this has been changed seen the first release candidates!) 
-
-This function is *not* thread safe and should be called by the main thread, before other threads start doing transformations. 
-
-* **void TR_GetVersion(char *buffer, int bufferlength):**  
-
-Writes version info to buffer. 
-
-* **int TR_GetLastError(void):** 
-
-Returns extended error code.
-
-* **void TR_TerminateLibrary(void):** 
-
-Frees various global resources. Should be called when library is shut down.
-
-* **void TR_TerminateThread(void):** 
-
-Frees various thread local resources. Should be called before exit of each thread, apart from the main thread, attached to the library.
-
-* **TR *TR_Open (char *label_in, char *label_out, char *geoid_name):** 
-
-Opens a transformation object – TR is an internally defined struct, which contains data relevant to a transformation between systems defined by label_in and label_out. A special geoid can be specified as third parameter – if this is given as the empty string, a standard geoid, if available, is selected by the library.
-
-* **void TR_GeoidInfo(TR *tr):** 
-
-Not yet fully operational. Prints info about current selected geoid to stdout. This behaviour will be improved in later releases, or the function will be deprecated.
-
-* **int TR_Transform(TR *tr, double *X, double *Y, double *Z, int n):** 
-
-Perform a transformation defined in the TR-object. Input are pointers to coordinates. Here the pointer Z can be NULL. The last parameter specifies the number of points pointed to by the input. Previously called tr!
-
-* **void TR_Close (TR *tr):**  
-
-Close a TR-object, frees the resources allocated in the object. Previously called tropen.
-
-* **int TR_Stream(TR *tr, FILE *f_in, FILE *f_out, int n):** 
-
-Transform points from/to file objects. Previously called trstream.
-
-* ** void TR_AllowUnsafeTransformations(void):** 
-
-If running in single threaded mode, allow transformations which are NOT thread safe. These are disabled by default.
-* ** void TR_ForbidUnsafeTransformations(void):** 
-
-Allows only thread safe transformations. This feature is enabled by default!
-
-* **int TR_InverseTransform(TR *tr, double *X, double *Y, double *Z, int n):** 
-
-Perform inverse of transformation defined in TR-object tr.
-
-====A few more wrappers of the transformation procedure ====
-
-* **int TR_Transform2(TR *tr, double *X_in, double *Y_in, double *Z_in, double *X_out, double *Y_out, double *Z_out, int n):** 
-
-Same as **TR_Transform**. However, pointers to output should be provided - input is not overwritten.
-*  **int TR_InverseTransform2(TR *tr, double *X_in, double *Y_in, double *Z_in, double *X_out, double *Y_out, double *Z_out, int n):** 
-
-The inverse of **TR_Transform2**.
-*  **int TR_TransformPoint(TR *tr, double X_in, double Y_in, double Z_in, double *X_out, double *Y_out, double *Z_out):** 
-
-A 'point' version of **TR_Transform2** where input are coordinates by value and pointers to output.
-* **int  TR_InverseTransformPoint(TR *tr, double X_in, double Y_in, double Z_in, double *X_out, double *Y_out, double *Z_out):** 
-
-The inverse of **TR_TransformPoint**.
 
 ====**Additions:**====
+
+Newly added functions:
 
 * **TR_ImportLabel**:
 
