@@ -10,7 +10,7 @@ Welcome to the trlib wiki.
 
 === Notes on release ===
 
-We plan to release a new version of trlib around the first of May 2013.
+We plan to release a version 1.1 of trlib around the first of May 2013.
 
 See the [[Release_News|Release news page.]]
 
