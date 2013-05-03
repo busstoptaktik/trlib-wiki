@@ -131,7 +131,7 @@ For example, in the UTM systems, they indicate where to put the zone number. In 
 
 Generally the transfomation library will expect the coordinate order to be **easting, northing, height** - and for geographic coordinates **longitude, latitude, height.** However, for the special 'KMS' file format usually the assumption is made that the coordinate sequence in the file is **northing, easting, height.** Some MiniLabels have an extra variant with an 'i' appended to the projection, e.g. utmi32_etrs89. This is an extra metadata information **ONLY** relevant when reading and writing files in the 'KMS' format, which tells the program to expect planar coordinates in **reversed** order, e.g. **easting, northing, height.**
 
-The last column in the table below indicates what the expected coordinate order is for the 'KMS' format.
+The last column in the table below indicates what the expected coordinate order is for the 'KMS' format. No indication means, that the sequence is the usual (N,E)=(northing,easting).
  
 
 
@@ -169,7 +169,6 @@ The last column in the table below indicates what the expected coordinate order 
 |lmbaps| |Lambert equiv. pol. proj. (S)| (S, E) |
 |lmblap|Lc|Lambert equiv. pol. proj. (N)| (N, E)|
 |lmblaps|Lc|Lambert equiv. pol. proj. (S)| (S, E)|
-
 |auth| |Authalic geogr. Crd.| |
 |**Region Europe**| || |
 |etrs-tm??|P.D.|etrs89 tm zone ??| |
