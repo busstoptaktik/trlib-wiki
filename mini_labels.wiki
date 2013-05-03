@@ -125,7 +125,10 @@ Other elements contained in the "Suppl param" column indicate which extra parame
 
 The character '?' found in some of the coordinate system names below are place holders for ciphers.
 
-For example, in the UTM systems, they indicate where to put the zone number. In the Conical Systems used in Greenland, the zones are called cones (numbered from 1 to 8) and the '?' character tells where to put the 'cone number’ 
+For example, in the UTM systems, they indicate where to put the zone number. In the Conical Systems used in Greenland, the zones are called cones (numbered from 1 to 8) and the '?' character tells where to put the 'cone number’. 
+
+Generally the transfomation library will expect the coordinate order to be easting, northing, height - and for geographic coordinates longitude, latitude, height. However, for the special 'KMS' file format usually the assumption is made that the coordinate sequence in the file is northing, easting, height. Some MiniLabels have an extra variant with an 'i' appended to the projection, e.g. utmi32_etrs89. This is an extra metadata information **only** relevant for the 'KMS' file format, which tells the program to expect planar coordinates in reversed order, e.g. easting, northing, height.
+ 
 
 
 |=MiniName|=Suppl Param|=Description| =Relevant for 'KMS' format|
