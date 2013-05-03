@@ -14,7 +14,7 @@ Internally at GST (formely KMS) MiniLabels are used generally as metadata descri
 
 Coordinate MiniLabels come in two types:
 
-====Coordinate MiniLabels of type 1:====
+===Coordinate MiniLabels of type 1:===
 
 A string consisting of three components: <coordinate system><separator><datum>[_<height MiniLabel>].
 
@@ -45,14 +45,13 @@ For some systems, the three components already described are not sufficient - ex
 
 Below you will find lists and examples further describing MiniLabel components.
 
-====A few type 1 coordinate MiniLabels:====
+===A few type 1 coordinate MiniLabels:===
 
 * geo_wgs84	: Geographic coordinates, Datum WGS84. No heights
 * utm32_etrf89	: UTM Zone 32, Datum ED50. No heights
 * crt_nad83g	: Cartesian Coordinates, Datum NAD83g. No heights
 
-
-====Coordinate MiniLabels of type 2:====
+===Coordinate MiniLabels of type 2:===
 
 A string consisting of three components:
 
@@ -60,7 +59,7 @@ A string consisting of three components:
 
 The second type of MiniLabels is mostly used to identify "regional" coordinate systems. For this type, the MiniLabel string consists of only a few letters, forming an (abbreviated) name of the system. Having identified a MiniLabel of this type, the program knows the values of the implicit parameters needed for the transformation. These "implicit parameters" may include coefficients for the transformation routine. 
 
-==== A few type 2 coordinate Minilabels:====
+=== A few type 2 coordinate Minilabels:===
 
 * dktm1		: DK TM Zone 1 EUREF89 
 * dktm2		: DK TM Zone 2 EUREF89 
@@ -71,7 +70,7 @@ The second type of MiniLabels is mostly used to identify "regional" coordinate s
 * kp2000b	: System 2000 Bornholm
 * sbH_h_dvr90	: Great Belt and DVR90 heights
 
-====Height MiniLabels:====
+===Height MiniLabels:===
 
 A string consisting of three components:
 
@@ -81,7 +80,7 @@ The only legal separator is ‘_’.
 
 A list of height systems and (height) datums is given below. 
 
-====Prefixes indicating Region:====
+===Prefixes indicating Region:===
 
 In order to avoid confusion when different stations in the same file are having the same station identification (station number), it is possible to apply a region prefix to the MiniLabel (and to the station identification as well). - this situation often occurs when stations from separate regions (countries) are mixed in the same file. This is utilized in the 'KMS' file format used internally at GST / KMS - when the MiniLabel for a coordinate block contains a region prefix, this prefix applies to all stations in the block, except stations having their own region prefix in the ID. 
 
