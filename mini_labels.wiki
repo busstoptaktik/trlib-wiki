@@ -126,7 +126,10 @@ The character '?' found in some of the coordinate system names below are place h
 
 For example, in the UTM systems, they indicate where to put the zone number. In the Conical Systems used in Greenland, the zones are called cones (numbered from 1 to 8) and the '?' character tells where to put the 'cone number’. 
 
-Generally the transfomation library will expect the coordinate order to be easting, northing, height - and for geographic coordinates longitude, latitude, height. However, for the special 'KMS' file format usually the assumption is made that the coordinate sequence in the file is northing, easting, height. Some MiniLabels have an extra variant with an 'i' appended to the projection, e.g. utmi32_etrs89. This is an extra metadata information **only** relevant when reading and writing files in the 'KMS' format, which tells the program to expect planar coordinates in **reversed** order, e.g. easting, northing, height.
+**NOTE - coordinate sequence: **
+
+
+Generally the transfomation library will expect the coordinate order to be **easting, northing, height** - and for geographic coordinates **longitude, latitude, height.** However, for the special 'KMS' file format usually the assumption is made that the coordinate sequence in the file is **northing, easting, height.** Some MiniLabels have an extra variant with an 'i' appended to the projection, e.g. utmi32_etrs89. This is an extra metadata information **ONLY** relevant when reading and writing files in the 'KMS' format, which tells the program to expect planar coordinates in **reversed** order, e.g. **easting, northing, height.**
 
 The last column in the table below indicates what the expected coordinate order is for the 'KMS' format.
  
@@ -134,23 +137,23 @@ The last column in the table below indicates what the expected coordinate order 
 
 |=MiniName|=Suppl Param|=Description|=Coord. sequence for 'KMS' format|
 |**Global Systems**| | | |
-|crt| |Cartesian 3-d coord| |
-|geo| |Geographical coord (Lat, Lon)| |
-|geoi| |Geographical coord (Lon, Lat)| |
-|utm**| |UTM zone ?? (?? = 2 digits) (N,E) | |
-|utmi??| |UTM zone ?? (?? = 2 digits) (E,N) | |
-|utm??n| |UTM zone ??, North. LAT (N,E)| |
-|utmi??n| |UTM zone ??, North. LAT (E,N)| |
-|utm??s| |UTM zone ??, South. LAT (S,E)| |
-|utmi??s| |UTM zone ??, South. LAT (E,S)| |
-|itm|B0 N0 Lc Ec Scale|TM, general GAUSS-KR (N, E)| |
-|itmi|B0 N0 Lc Ec Scale|TM, general GAUSS-KR (E, N)| |
-|tm??| |GAUSS-KR ?? dg 3dg.z scale 1.0| |
-|mrc|B0 N0 Lc Ec|Mercator projection| |
-|mrc0| |Mercator Std Projection| |
-|lmb|B0 N0 Lc Ec Bc|Lambert conf. con.| |
-|dlmb|B0 N0 Lc Ec B1 B2|Lambert 2 par. c. con.| |
-|elmb|B0 N0 Lc Ec B1 B2|Lambert eql. c. con.| |
+|crt| |Cartesian 3-d coord| (X,Y,Z) |
+|geo| |Geographical coord | (Lat, Lon)|
+|geoi| |Geographical coord |(Lon, Lat) |
+|utm**| |UTM zone ?? (?? = 2 digits)  | (N,E) |
+|utmi??| |UTM zone ?? (?? = 2 digits)  |(E,N) |
+|utm??n| |UTM zone ??, North. LAT |(N,E) |
+|utmi??n| |UTM zone ??, North. LAT |(E,N) |
+|utm??s| |UTM zone ??, South. LAT |(S,E) |
+|utmi??s| |UTM zone ??, South. LAT |(E,S) |
+|itm|B0 N0 Lc Ec Scale|TM, general GAUSS-KR |(N, E) |
+|itmi|B0 N0 Lc Ec Scale|TM, general GAUSS-KR | (E, N)|
+|tm??| |GAUSS-KR ?? dg 3dg.z scale 1.0|(N, E) |
+|mrc|B0 N0 Lc Ec|Mercator projection|(N, E) |
+|mrc0| |Mercator Std Projection|(N, E) |
+|lmb|B0 N0 Lc Ec Bc|Lambert conf. con.|(N, E) |
+|dlmb|B0 N0 Lc Ec B1 B2|Lambert 2 par. c. con.|(N, E) |
+|elmb|B0 N0 Lc Ec B1 B2|Lambert eql. c. con.|(N, E) |
 |npstg| |North polar stereographic| |
 |spstg| |South polar stereographic| |
 |upsn| |Universal polar stereogr N| |
@@ -163,7 +166,10 @@ The last column in the table below indicates what the expected coordinate order 
 |safl| |Sansom-Flamsteed equiv. proj.| |
 |lmbac| |Lambert equiv. cyl. proj.| |
 |lmbap| |Lambert equiv. pol. proj. (N)| |
-|lmbaps| |Lambert equiv. pol. proj. (S)| |
+|lmbaps| |Lambert equiv. pol. proj. (S)| (S, E) |
+|lmblap|Lc|Lambert equiv. pol. proj. (N)| (N, E)|
+|lmblaps|Lc|Lambert equiv. pol. proj. (S)| (S, E)|
+
 |auth| |Authalic geogr. Crd.| |
 |**Region Europe**| || |
 |etrs-tm??|P.D.|etrs89 tm zone ??| |
@@ -173,19 +179,19 @@ The last column in the table below indicates what the expected coordinate order 
 |etrs-laea|P.D.|etrs89 Lmb Azimuthal Equal Area| |
 |ETRS-LAEAP.D.| |etrs89 Lmb Azimuthal Equal Area| |
 |**Region Denmark**| || |
-|dktm1|P.D.|DK TM1 etrf89 (E, N)| |
-|dktm2|P.D.|DK TM2 etrf89 (E, N)| |
-|dktm3|P.D.|DK TM3 etrf89 (E, N)| |
-|dktm4|P.D.|DK TM4 etrf89 (E, N)| |
+|dktm1|P.D.|DK TM1 etrf89 |(E, N) |
+|dktm2|P.D.|DK TM2 etrf89 |(E, N) |
+|dktm3|P.D.|DK TM3 etrf89 |(E, N)|
+|dktm4|P.D.|DK TM4 etrf89 |(E, N) |
 |kfmr|P.D.|Kbh Frb Metroring, etrf89| |
 |kp2000j|P.D.|System 2000 Jylland, etrf89| |
 |kp2000s|P.D.|System 2000 Sjælland, etrf89| |
 |kp2000b|P.D.|System 2000 Bornholm, etrf89| |
 |dmrc|P.D.|Dansk Merkator etrf89| |
 |fcs|P.D.|Fehmarn Coordinate System| |
-|s34j|P.D.|System 1934 Jylland| |
-|s34s|P.D.|System 1934 Sjælland| |
-|s45b|P.D.|System 1945 Bornholm| |
+|s34j|P.D.|System 1934 Jylland|(N,W) i.e. (Y,X) |
+|s34s|P.D.|System 1934 Sjælland|(N,W) i.e. (Y,X) |
+|s45b|P.D.|System 1945 Bornholm|(N,W) i.e. (Y,X) |
 |s34b|P.D.|    System 1945 Bornholm| |
 |dm|P.D.|Dansk Merkator ed50| |
 |gsgeo|P.D.|geogr. crd, gs| |
