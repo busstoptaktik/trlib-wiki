@@ -197,7 +197,7 @@ The last column in the table below indicates what the expected coordinate order 
 |Sbf|P.D.|SB bridge proj., inverted| |
 |**Region Faroe Islands**| || |
 |fotm|P.D.| Faroe TM etrs89|(E, N)|
-|fke|P.D.|Conf. con. FO, euref89| |
+|fke|P.D.|Conf. con. FO, etrs89| |
 |fg50|P.D.|FO geogr. crd, ed50| |
 |fu50|P.D.|utm zone 29, top_ed50| |
 |fg54|P.D.|FO geogr. crd, fd54| |
