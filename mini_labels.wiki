@@ -18,7 +18,7 @@ Coordinate MiniLabels come in two types:
 
 A string consisting of three components: <coordinate system><separator><datum>[_<height MiniLabel>].
 
-The coordinate system is mostly also readable for humans: the string "geo" indicates geographical coordinates, "utm33" represents UTM zone 33. In some of the other cases, the translation may not be quite obvious. Below you'll find lists and examples further describing MiniLabel components.
+The coordinate system is mostly also human readable: the string "geo" indicates geographical coordinates, "utm33" represents UTM zone 33. In some of the other cases, the translation may not be quite obvious. Below you'll find lists and examples further describing MiniLabel components.
 
 The separator is used in two ways:
 #Separate the coordinate system and the datum
@@ -132,7 +132,7 @@ The last column in the table below indicates what the expected coordinate order 
  
 
 
-|=MiniName|=Suppl Param|=Description| =Coord. sequence for 'KMS' format|
+|=MiniName|=Suppl Param|=Description|=Coord. sequence for 'KMS' format|
 |**Global Systems**| | | |
 |crt| |Cartesian 3-d coord| |
 |geo| |Geographical coord (Lat, Lon)| |
