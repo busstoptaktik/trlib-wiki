@@ -245,6 +245,7 @@ Where in the supplementary parameters column, the following abbreviations are us
 |Ec|		Easting Constant|
 |Scale	|	Scale (close to 1 usually)|
 |B1, B2	|	Latitude parallels for definition of scale.|
+|N,E,S,W | Northing, Easting, Southing, Westing|
 
 ====List of Separators:====
 
