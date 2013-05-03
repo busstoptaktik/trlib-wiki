@@ -224,7 +224,7 @@ For example, in the UTM systems, they indicate where to put the zone number. In 
 
 
 
-Where in the supplemenatry parameters column: 
+Where in the supplementary parameters column, the following abbreviations are used: 
 
 |=Abbrv.|=Meaning|
 |P.D.	|	Predefined Datum|
