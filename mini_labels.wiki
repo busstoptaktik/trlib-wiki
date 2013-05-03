@@ -77,7 +77,7 @@ In order to avoid confusion when different stations in the same file are having 
 
 The region prefix does not affect the actual transformation. It is an extra piece of metadata information, which transformation programs can use to handle special cases - for example in input and output of point names, or to display a predefined list of systems in a graphical user interface.
 
-====Possible Region Prefixes:====
+===Possible Region Prefixes:===
 |=PREFIX|=REGION|
 |DK |Denmark |         
 |FO |Faroe Islands|    
@@ -261,7 +261,7 @@ Accordingly, a MiniLabel indicating the following list to contain dktm1 coordina
 
   *dktm1H_h_dvr90
 
-====List of Datums====
+===List of Datums===
 
 The following list contains the datums supported by the KMS transformation software.
 
@@ -324,7 +324,7 @@ The character '@' at the start of some descriptions marks that this datum is onl
 |qbc2001|@ Qatar Bahrain Causeway (COWI)|wgs84|WGS84|
 |qnd1995|@ Qatar National Datum 1995|wgs84|Hayford|
 
-====Vertical Datums====
+===Vertical Datums===
 
 
 |=Vertical Datum|=Description|=Ellipsoid|
@@ -365,7 +365,7 @@ The ITM label above actually provides the UTM zone 32 system also given by the M
 
 *utm32Hetrf89_h_dvr90 
 
-====More Examples of MiniLabels:====
+===More Examples of MiniLabels:===
 
 geo_etrs89: 
 
