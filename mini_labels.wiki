@@ -60,7 +60,7 @@ A string consisting of three components:
 
 The second type of MiniLabels is mostly used to identify "regional" coordinate systems. For this type, the MiniLabel string consists of only a few letters, forming an (abbreviated) name of the system. Having identified a MiniLabel of this type, the program knows the values of the implicit parameters needed for the transformation. These "implicit parameters" may include coefficients for the transformation routine. 
 
-==== A few kind 2 coordinate Minilabels:====
+==== A few type 2 coordinate Minilabels:====
 
 * dktm1		: DK TM Zone 1 EUREF89 
 * dktm2		: DK TM Zone 2 EUREF89 
