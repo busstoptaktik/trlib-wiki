@@ -1,13 +1,4 @@
-== MiniLabels ==
-
-Among the new mini labels in the recent release are:
-
-* webmrc - Web Mercator.
-* fcs - Fehmarn projection.
-
-A new projection for the Faroe Islands is also included with the minilabel "fotm". However this projection is still under development and should be considered in "alpha" mode!
-
-=== KMS Coordinate MiniLabels ===
+= Coordinate MiniLabels = 
 
 MiniLabels are short text strings used by the transformation library as metadata description of projections and datums.
 Internally at GST (formely KMS) MiniLabels are used generally as metadata description for other types of data. The MiniLabels that are relevant for a user of the transformation library and transformation programs are called **coordinate MiniLabels**.
@@ -39,7 +30,7 @@ The separator consists of just one character having one of the values:
 
 The datum is the name of the datum (for coordinates) in small letters. For example:
 
-wgs84, etrf89, nad83g, qornoq.
+wgs84, etrs89, nad83g, qornoq.
 
 For some systems, the three components already described are not sufficient - extra parameters are needed. Such parameters (identifying for example the scale, a central meridian, translation of the coordinates etc) are placed after the "main" (3-component) part of the MiniLabel. Having identified the "Main Part", the program knows how to read the extra parameters.
 
@@ -48,7 +39,7 @@ Below you will find lists and examples further describing MiniLabel components.
 ===A few type 1 coordinate MiniLabels:===
 
 * geo_wgs84	: Geographic coordinates, Datum WGS84. No heights
-* utm32_etrf89	: UTM Zone 32, Datum ED50. No heights
+* utm32_etsf89	: UTM Zone 32, Datum ED50. No heights
 * crt_nad83g	: Cartesian Coordinates, Datum NAD83g. No heights
 
 ===Coordinate MiniLabels of type 2:===
@@ -112,7 +103,7 @@ The region prefix does not affect the actual transformation. It is an extra piec
 |US |USA         |     
 
 
-Example of a coordinate minilabel with region prefix:  **DK_utm33_etrf89**
+Example of a coordinate minilabel with region prefix:  **DK_utm33_etrs89**
 
 ===List of Coordinate Systems.===
 
@@ -179,15 +170,15 @@ The last column in the table below indicates what the expected coordinate order 
 |etrs-laea|P.D.|etrs89 Lmb Azimuthal Equal Area| |
 |ETRS-LAEAP.D.| |etrs89 Lmb Azimuthal Equal Area| |
 |**Region Denmark**| || |
-|dktm1|P.D.|DK TM1 etrf89 |(E, N) |
-|dktm2|P.D.|DK TM2 etrf89 |(E, N) |
-|dktm3|P.D.|DK TM3 etrf89 |(E, N)|
-|dktm4|P.D.|DK TM4 etrf89 |(E, N) |
-|kfmr|P.D.|Kbh Frb Metroring, etrf89| |
-|kp2000j|P.D.|System 2000 Jylland, etrf89| |
-|kp2000s|P.D.|System 2000 Sjælland, etrf89| |
-|kp2000b|P.D.|System 2000 Bornholm, etrf89| |
-|dmrc|P.D.|Dansk Merkator etrf89| |
+|dktm1|P.D.|DK TM1 etrs89 |(E, N) |
+|dktm2|P.D.|DK TM2 etrs89 |(E, N) |
+|dktm3|P.D.|DK TM3 etrs89 |(E, N)|
+|dktm4|P.D.|DK TM4 etrs89 |(E, N) |
+|kfmr|P.D.|Kbh Frb Metroring, etrs89| |
+|kp2000j|P.D.|System 2000 Jylland, etrs89| |
+|kp2000s|P.D.|System 2000 Sjælland, etrs89| |
+|kp2000b|P.D.|System 2000 Bornholm, etrs89| |
+|dmrc|P.D.|Dansk Merkator etrs89| |
 |fcs|P.D.|Fehmarn Coordinate System| |
 |s34j|P.D.|System 1934 Jylland|(N,W)|
 |s34s|P.D.|System 1934 Sjælland|(N,W)|
@@ -280,7 +271,7 @@ The character '@' at the start of some descriptions marks that this datum is onl
 
 |=Coordinate Datum|=Description|=Parent datum|=Ellipsoid|
 |wgs84|World Geodetic System 1984|ed50|WGS84|
-|etrf89|EUREF 89|wgs84|GRS80|
+|etff89|EUREF 89|wgs84|GRS80|
 |etrs89|EUREF 89|wgs84|GRS80|
 |euref89|EUREF 89|wgs84|GRS80|
 |gr96|Greenland Reference Frame 1996|wgs84|GRS80|
