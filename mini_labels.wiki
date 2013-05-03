@@ -247,35 +247,34 @@ Where in the supplementary parameters column, the following abbreviations are us
 |B1, B2	|	Latitude parallels for definition of scale.|
 |N,E,S,W | Northing, Easting, Southing, Westing|
 
-====List of Separators:====
+===List of Separators:===
 
-The Separator in a Coordinate MiniLabel tells which kind of Height Information is included in the list:
+The Separator in a coordinate MiniLabel determines the type of height information / height datum:
 
-H		Height described in height minilabel
-E		Ellipsoid Heights
+* H		Height described in height minilabel
+* E		Ellipsoid Heights
+* _		No Heights
+* N		Normal Heights: short for: H … _h_msl
 
-_		No Heights
-N		Normal Heights: short for: H … _h_msl
 
+This separator is written in the MiniLabel right after the coordinate system sub string. It provides:
 
-This separator is written in the MiniLabel right after the coordinate system sub string. It acts as:
-
-#	'real' separators between the sub strings indicating coordinate system and datum respectively.
+#   A 'real' separation between the sub strings indicating coordinate system and datum respectively.
 #	Information on presence of height system.
 
-(See Vertical Reference Frames).
+(See also a list of vertical datums below).
 
-For the systems having a Predefined datum (P.D.), the datum should not be explicitly written in the label, here the separator is placed as an appendix to the coordinate system sub string.
+For the systems having a predefined datum (P.D.), the datum should not be explicitly written in the label, here the separator is placed as an appendix to the coordinate system sub string.
 
-Accordingly, a MiniLabel indicating the following list to contain dhtm1 coordinates - and DVR90 heights will look like:
+Accordingly, a MiniLabel indicating the following list to contain dktm1 coordinates - and DVR90 heights will look like:
 
   *dktm1H_h_dvr90
 
 ====List of Datums====
 
-The following list contains the datum supported by the KMS Transformation System (and by KmsTrans)
+The following list contains the datums supported by the KMS transformation software.
 
-Parent Datum indicates the structure in the datum-hierarchy used internally by the transformation system.
+Parent datum indicates the structure in the datum-hierarchy used internally by the transformation system.
 
 The character '@' at the start of some descriptions marks that this datum is only used in connection with one of the projection systems having a predefined datum.
 
@@ -355,31 +354,51 @@ The character '@' at the start of some descriptions marks that this datum is onl
 
 
 
-As an example of a system demanding supplementing parameters we can use the ITM system. This system is (like the UTM) a transversal mercator system. In the ITM, you can via the extra parameters select the scale, central meridian and offsets for the coordinates.
+As an example of a system / projection demanding supplementary  parameters we can use the ITM system. This system is (like the UTM) a transversal Mercator system. For the ITM projection, you can via the extra parameters select the scale, central meridian and offsets for the coordinates.
 
  
 
-For the ITM System the suppl. parameters (and the order they should appear) is found in the coordinate system list:
+For ITM the suppementary parameters (and the order in which they should appear) is found in the coordinate system list:
 
 B0 N0 Lc Ec Scale 
 
-The content of an ITM Label File could be:
+The content of an ITM label could be:
 
 *itmHetrf89_h_dvr90  0 sx  0 m  9 00 00 sx  500000.0 m  0.9996
 or using other units:
 *itmHetrf89_h_dvr90  0 dg  0 m  9 dg  500 km  0.9996
 
-This ITM label is actually the UTM zone 32 label: 
+Note that the separation between two fields /entities must be at least two spaces!
+
+The ITM label above actually provides the UTM zone 32 system also given by the MiniLabel: 
 
 *utm32Hetrf89_h_dvr90 
 
 ====More Examples of MiniLabels:====
 
-* geo_etrf89:  Geographical Coordinates, Datum etrf89, No Heights. 
-* geoEetrf89: Geographical Coordinates, Datum etrf89. Ellipsoidal Heights 
-* utm32_euref89 : UTM coordinates  zone 32, Datum etrf89. No Heights.
-* dktm1E: Dansk TM zone 1, Ellipsoidal Heights.
-* dktm2: Dansk TM zone 1, No Heights. The '_' character may be omitted in the 'P.D.' systems.
-* crt_euref89: Cartesic Coordinates, Datum Euref89.   
+geo_etrs89: 
 
-In Cartesic Systems the Height Component of the minilabel is just the '_' character as no Heights are accepted.
+Geographical coordinates, Datum etrs89, No Heights. 
+
+geoEetrs89: 
+
+Geographical coordinates, Datum etrs89. Ellipsoidal Heights 
+
+utm32_etrs89: 
+
+UTM coordinates zone 32, Datum etrs89. No Heights. 
+
+dktm1E: 
+
+Dansk TM zone 1, Ellipsoidal Heights. 
+
+dktm2: 
+
+Dansk TM zone 1, No Heights. The '_' character may be omitted in the 'P.D.' systems. 
+
+crt_etrs89: 
+
+Cartesian coordinates, Datum ETRS89. 
+
+
+In Cartesian systems, the Height component of the MiniLabel is just the '_' character as no Heights are accepted.
