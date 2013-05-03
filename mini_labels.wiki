@@ -114,7 +114,7 @@ The region prefix does not affect the actual transformation. It is an extra piec
 
 Example of a coordinate minilabel with region prefix:  **DK_utm33_etrf89**
 
-====List of Coordinate Systems.====
+===List of Coordinate Systems.===
 
 The following list is a compilation of the sub strings used in MiniLabels to indicate Coordinate System.
 
@@ -126,11 +126,13 @@ The character '?' found in some of the coordinate system names below are place h
 
 For example, in the UTM systems, they indicate where to put the zone number. In the Conical Systems used in Greenland, the zones are called cones (numbered from 1 to 8) and the '?' character tells where to put the 'cone number’. 
 
-Generally the transfomation library will expect the coordinate order to be easting, northing, height - and for geographic coordinates longitude, latitude, height. However, for the special 'KMS' file format usually the assumption is made that the coordinate sequence in the file is northing, easting, height. Some MiniLabels have an extra variant with an 'i' appended to the projection, e.g. utmi32_etrs89. This is an extra metadata information **only** relevant for the 'KMS' file format, which tells the program to expect planar coordinates in reversed order, e.g. easting, northing, height.
+Generally the transfomation library will expect the coordinate order to be easting, northing, height - and for geographic coordinates longitude, latitude, height. However, for the special 'KMS' file format usually the assumption is made that the coordinate sequence in the file is northing, easting, height. Some MiniLabels have an extra variant with an 'i' appended to the projection, e.g. utmi32_etrs89. This is an extra metadata information **only** relevant when reading and writing files in the 'KMS' format, which tells the program to expect planar coordinates in **reversed** order, e.g. easting, northing, height.
+
+The last column in the table below indicates what the expected coordinate order is for the 'KMS' format.
  
 
 
-|=MiniName|=Suppl Param|=Description| =Relevant for 'KMS' format|
+|=MiniName|=Suppl Param|=Description| =Coord. sequence for 'KMS' format|
 |**Global Systems**| | | |
 |crt| |Cartesian 3-d coord| |
 |geo| |Geographical coord (Lat, Lon)| |
