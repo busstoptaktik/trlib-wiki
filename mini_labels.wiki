@@ -150,7 +150,8 @@ The last column in the table below indicates what the expected coordinate order 
 |itmi|B0 N0 Lc Ec Scale|TM, general GAUSS-KR | (E, N)|
 |tm??| |GAUSS-KR ?? dg 3dg.z scale 1.0|(N, E) |
 |mrc|B0 N0 Lc Ec|Mercator projection|(N, E) |
-|mrc0| |Mercator Std Projection|(N, E) |
+|mrc0| |Mercator Std Projection|(N, E)|
+|webmrc| WEB Mercator projection zero|(N,E)|
 |lmb|B0 N0 Lc Ec Bc|Lambert conf. con.|(N, E) |
 |dlmb|B0 N0 Lc Ec B1 B2|Lambert 2 par. c. con.|(N, E) |
 |elmb|B0 N0 Lc Ec B1 B2|Lambert eql. c. con.|(N, E) |
