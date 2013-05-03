@@ -189,9 +189,9 @@ The last column in the table below indicates what the expected coordinate order 
 |kp2000b|P.D.|System 2000 Bornholm, etrf89| |
 |dmrc|P.D.|Dansk Merkator etrf89| |
 |fcs|P.D.|Fehmarn Coordinate System| |
-|s34j|P.D.|System 1934 Jylland|(N,W) i.e. (Y,X) |
-|s34s|P.D.|System 1934 Sjælland|(N,W) i.e. (Y,X) |
-|s45b|P.D.|System 1945 Bornholm|(N,W) i.e. (Y,X) |
+|s34j|P.D.|System 1934 Jylland|(N,W)|
+|s34s|P.D.|System 1934 Sjælland|(N,W)|
+|s45b|P.D.|System 1945 Bornholm|(N,W)|
 |s34b|P.D.|    System 1945 Bornholm| |
 |dm|P.D.|Dansk Merkator ed50| |
 |gsgeo|P.D.|geogr. crd, gs| |
