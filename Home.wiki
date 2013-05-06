@@ -13,6 +13,8 @@ Welcome to the trlib wiki.
 
 We plan to release a version 1.1 of trlib around the first of May 2013.
 
+UPDATE: The release of version 1.1 is now planned to happen during week 20.
+
 See the [[Release_News|Release news page.]]
 
 Precompiled binaries for windows and updated geoid library for the previous release 1.01 are available for download from the [[ftp://ftp.kms.dk/download/transformationsprogram/|GST ftp server]].
