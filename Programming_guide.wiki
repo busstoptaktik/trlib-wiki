@@ -270,8 +270,7 @@ Below "def-files" refer to the two necessary definition files def_lab.txt and de
 |=**Location of def-files**|=**Possible transformations**|=**Call to TR_InitLibrary**|
 |In geoid folder,\\pointed to by TR_TABDIR|2d and 3d     | TR_InitLibrary(“”)|
 |In geoid folder| 2d and 3d         |TR_InitLibrary(path_to_folder)|
-|In “current directory”| 2d | TR_InitLibrary(“”)|
-|In some folder.\\No geoids there or in “cwd”| 2d |TR_InitLibrary(path_to_folder)|
+|In some folder without any geoids | 2d |TR_InitLibrary(path_to_folder)|
 
 ===Thread Safety===
 
