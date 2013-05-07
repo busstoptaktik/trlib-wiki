@@ -7,7 +7,7 @@ Welcome to the trlib wiki.
 * [[Programming_guide|Programming guide.]]
 * [[mini_labels|A description of MiniLabels.]]
 * [[Bindings|Bindings to high level languages.]]
-* [[WGS84|Note on the WGS84 datum]]
+* [[Relationship%20between%20WGS84,%20ETRS89%20and%20ITRF|Note on the WGS84 datum]]
 
 === Notes on release ===
 
