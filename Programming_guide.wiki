@@ -258,7 +258,9 @@ Note that coordinates in geographical systems "geo_xxx" are expected to be in **
 
 === Definition files and geoid library: ===
 
-The definition file def_lab.txt is needed in order to perform any transformations. The library will, as default, look for def_lab.txt in the current directory (where a program is invoked). If def_lab.txt is not found there, knowing that the concept of “current directory” is not always well defined, KMSTrLib will look for the definition file in the tabdir defined in TR_InitLibrary. The same procedure holds for other definition/parameter files. For example the file def_shp.txt is needed by the function TR_GetEsriText.
+The definition file def_lab.txt is needed in order to perform any transformations. The definition files are parsed in TR_InitLibrary, so you'll need to call this with a path to where the files are located or set the TR_TABDIR variable before the call.
+
+The path can be changed later with TR_SetGeoidDir(path). The location pointed to does not need to include any geoid files as long as def_lab.txt is present in the folder. 
 
 If the user wants to perform 3d-transformations, involving e.g. various height systems, a proper geoid library distributed by KMS on releases should be pointed to by InitLibrary. However it is possible to do 2d-transformations (and some 3d-transformations involving ellipsoidal heights) without any geoid library, as long as def_lab.txt can be located.
 
