@@ -1,6 +1,6 @@
-Coordinates from single point GPS measurements are in WGS84. The positioning accuracy from these measurements is approximately 2-10 m. If you require a positioning accuracy on the cm level you have to perform GPS measurements relative to a well-known reference. The measurements could be static measurements relative to ETRS89 or ITRF, RTK measurements relative to ETRS89 or measurements using one of the global positioning services, which are typically relative to the current ITRF – in 2013 it is ITRF2008.
+Coordinates from single point GPS measurements are in WGS84. The positioning accuracy from such measurements is typically in the order of 2-10 m. For positioning accuracy on the centimeter level one must perform GPS measurements relative to a well-known reference. The measurements could be static measurements relative to ETRS89 or ITRF, RTK measurements relative to ETRS89 or measurements using one of the global positioning services, which are typically relative to the current ITRF – in 2013 it is ITRF2008.
 
-When using coordinates it is crucial to know the GPS observation method and which reference is used. It is not sufficient to state that the coordinates are in WGS84; it can be ETRS89 or ITRF. The difference between the horizontal coordinates of a fix point in these two references is in 2013 approximately 65 cm. Some years ago it was not common to do measurement using a global positioning service, but positioning services are used more frequently today, and it is then more important to specify the exact reference instead of using the term WGS84.
+When using coordinates it is crucial to know the GPS observation method and which reference is used. It is not sufficient to state that the coordinates are in WGS84; it can be ETRS89 or ITRF. In 2013, the difference between the horizontal coordinates of a fixed point in these two references is approximately 65 cm. Some years ago it was not common to do measurement using a global positioning service, but positioning services are used more frequently today, and it is then more important to specify the exact reference instead of using the term WGS84.
 
 
 
@@ -12,7 +12,7 @@ The different versions of WGS84 are denoted by a GPS week number indicating the 
 
 The reason for to keep the relationship between WGS84 and ETRS89 in KMSTrans2 is, that the user should still have the possibility to use the term WGS84 for coordinates in ETRS89. In KMSTrans2 as in earlier versions of the software the user will still get the same results when using either WGS84 or ETRS89. This implies that it is not possible to transform between WGS84 and ETRS89.
 
-The addition of the GPS week number is not of practical importance in the transformation software. It is a matter of presenting the relationship between WGS84 and ETRS89 more correctly, and to make clear to the user that it is important to be aware of the observation method and the reference when the required positioning accuracy is on the cm or dm level.
+The addition of the GPS week number is not of practical importance in the transformation software. It is a matter of presenting the relationship between WGS84 and ETRS89 more correctly, and to make clear to the user that it is important to be aware of the observation method and the reference when the required positioning accuracy is on the centimeter or decimeter level.
 
 
 
@@ -24,4 +24,4 @@ The relationship between WGS84 and ETRS89 described above relates to Denmark. Fo
 
 **What about transformations between ITRF and ETRS89?**
 
-In KMSTrans2 it is not possible to transform between ITRF and ETRS89. But later this year we are planning on to go public with a plug-in to KMSTrans2 that can transform between different ITRF’s and ETRS89 - and between different ITRF’s and GR96 for Greenland.
+In KMSTrans2 it is not possible to transform between ITRF and ETRS89. This may change at a later date, as we plan to introduce a plug-in for transformation between ETRS89 and different ITRF’s - and between GR96 and different ITRF’s for Greenland.
