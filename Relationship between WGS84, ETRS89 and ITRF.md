@@ -8,11 +8,11 @@ When using coordinates it is crucial to know the GPS observation method and whic
 
 In former versions of KMSTrans it was stated that WGS84 ≈ ETRS89. In the new version we want to elaborate on this statement, because as time goes by it is not quite true anymore. The fact is that the definition of WGS84 has changed during time. When ETRS89 was defined it was reasonable to say that WGS84 ≈ ETRS89, but since then the definition of WGS84 has been adjusted several times, so now WGS84 is much closer to the current ITRF than to ETRS89.
 
-The different versions of WGS84 are denoted by a GPS week number indicating the time of definition. By the new version of KMSTrans we will introduce a the GPS week number that defines the version of WGS84 closest to ETRS89. This version of WGS84 is called WGS84(G730). With this notation it is still reasonable to say that WGS84 ≈ ETRS89. The latest version of WGS84 has the week number G1674 and today WGS84(G1674) ≈ ITRF2008.
+The different versions of WGS84 are denoted by a GPS week number indicating the time of definition. By the new version of KMSTrans we will introduce the GPS week number that defines the version of WGS84 closest to ETRS89. This version of WGS84 is called WGS84(G730). With this notation it is still reasonable to say that WGS84 ≈ ETRS89. The latest version of WGS84 has the week number G1674 and today WGS84(G1674) ≈ ITRF2008.
 
 The reason for to keep the relationship between WGS84 and ETRS89 in KMSTrans2 is, that the user should still have the possibility to use the term WGS84 for coordinates in ETRS89. In KMSTrans2 as in earlier versions of the software the user will still get the same results when using either WGS84 or ETRS89. This implies that it is not possible to transform between WGS84 and ETRS89.
 
-The addition of the GPS week number is not of practical importance in the transformation software. It is a matter of presenting the relationship between WGS84 and ETRS89 more correctly, and to make clear to the user that it is important to be aware of the observation method and the reference when the required positioning accuracies are on the cm or dm level.
+The addition of the GPS week number is not of practical importance in the transformation software. It is a matter of presenting the relationship between WGS84 and ETRS89 more correctly, and to make clear to the user that it is important to be aware of the observation method and the reference when the required positioning accuracy is on the cm or dm level.
 
 
 
