@@ -12,7 +12,7 @@ The different versions of WGS84 are denoted by a GPS week number indicating the 
 
 The reason for to keep the relationship between WGS84 and ETRS89 in KMSTrans2 is, that the user should still have the possibility to use the term WGS84 for coordinates in ETRS89. In KMSTrans2 as in earlier versions of the software the user will still get the same results when using either WGS84 or ETRS89. This implies that it is not possible to transform between WGS84 and ETRS89.
 
-The addition of the GPS week number is not of practical importance in the transformation software. It is a matter of presenting the relationship between WGS84 and ETRS89 more correctly, and to make clear to the user that it is important to be aware of the positioning accuracy, the observation method and the reference.
+The addition of the GPS week number is not of practical importance in the transformation software. It is a matter of presenting the relationship between WGS84 and ETRS89 more correctly, and to make clear to the user that it is important to be aware of the observation method and the reference when the required positioning accuracies are on the cm or dm level.
 
 
 
