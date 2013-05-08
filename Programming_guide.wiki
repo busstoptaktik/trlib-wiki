@@ -236,7 +236,8 @@ Gets scale and meridian convergence of a projection contained in a TR-object. Ex
 #!c
 ok= TR_GetLocalGeometry(trf, x, y, &m, &c, 1);
 }}}
-will copy the meridian convergence and scale of the output projection of trf to the doubles m and c.
+will copy the meridian convergence and scale of the output projection of trf to the doubles m and c. 
+Only supports ITM, UTM, LMB and STG projections - thus **NOT** system34.
 
 * **LORD (LOgging, Reporting and Debugging) module functions**:
 
