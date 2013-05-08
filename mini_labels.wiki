@@ -39,7 +39,7 @@ Below you will find lists and examples further describing MiniLabel components.
 ===A few type 1 coordinate MiniLabels:===
 
 * geo_wgs84	: Geographic coordinates, Datum WGS84. No heights
-* utm32_etsf89	: UTM Zone 32, Datum ED50. No heights
+* utm32_etrs89	: UTM Zone 32, Datum etrs89. No heights
 * crt_nad83g	: Cartesian Coordinates, Datum NAD83g. No heights
 
 ===Coordinate MiniLabels of type 2:===
