@@ -1,6 +1,6 @@
 # Release News #
 
-Version 1.1 of trlib will be relased (around) May 1, 2013.
+Version 1.1 of trlib is released.
 
 ### News for trlib v. 1.1: ###
 1. Improved interior design which should make **TR_Open** slightly faster, especially in a multithreaded setup.
