@@ -11,15 +11,15 @@ Welcome to the trlib wiki.
 
 === Notes on release ===
 
-We plan to release a version 1.1 of trlib around the first of May 2013.
+Version 1.1 of trlib is released and compiled binaries for windows are available from the downloads tab! 
 
-UPDATE: The release of version 1.1 is now planned to happen during week 20.
+Links to download will also be available (soon) from [[http://www.gst.dk/Emner/Referencenet/Koordinattransformation/| the GST wbesite for coordinate transformation]].
 
 See the [[Release_News|Release news page.]]
 
-Precompiled binaries for windows and updated geoid library for the previous release 1.01 are available for download from the [[ftp://ftp.kms.dk/download/transformationsprogram/|GST ftp server]].
+Precompiled binaries for windows and geoid library for the previous release 1.01 are still available from the [[ftp://ftp.kms.dk/download/transformationsprogram/|GST ftp server]].
 
-Links to the ftp server will also be available (soon) from [[http://www.gst.dk/Emner/Referencenet/Koordinattransformation/| the GST wbesite for coordinate transformation]].
+
 
 
 === Build procedures ===
