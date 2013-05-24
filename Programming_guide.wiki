@@ -276,7 +276,7 @@ Below "def-files" refer to the two necessary definition files def_lab.txt and de
 ===Thread Safety===
 
 We have implemented thread safety by using thread local storage. After the library has been initialised by **TR_InitLibrary** in some thread, each new thread created can perform transformations as usual. **TR_TerminateThread** **must** be called by the thread before it exits. 
-TR-objects returned by tropen contain thread local data, and should not be shared among threads.
+TR-objects returned by TR_Open contain thread local data, and should not be shared among threads.
 
 Due to a special implementation of Fehmarn transformations (defined by minilabel fcs), these are not fully thread safe and should be run by a single threaded process. The transformations can only be run after a call to **TR_AllowUnsafeTransformations**.
 
@@ -377,7 +377,7 @@ int foo(double *x, double *y, double *x_o, double *y_o, int n){
 
 ===Maximising performance:===
 
-Since resources are allocated each time a new transformation object is opened with tropen, it is generally a good idea to keep the TR-objects around as long as they are needed. The simple wrapper TR_Transform opens and closes a new TR-object on each call. However, the performance difference should be negligible unless you are doing a lot of the same transformations right after each other.
+Since resources are allocated each time a new transformation object is opened with TR_Open, it is generally a good idea to keep the TR-objects around as long as they are needed.
 
 Also resources are allocated each time a new thread is attached to the library. This implies, that it is also a good strategy to keep threads alive for as long as they are needed.
 
@@ -415,7 +415,7 @@ if (e!=TR_OK)
 
 }}}
 
-The projection defined in trf can then be reused before it is finally closed with trclose.
+The projection defined in trf can then be reused before it is finally closed with TR_Close.
 
 In the previous API this would be:
 
