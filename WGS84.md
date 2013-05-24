@@ -1,1 +1,1 @@
-Please refer to  [Relationship between WGS84, ETRS89 and ITRF](this page)
+Please refer to  [this page.](Relationship between WGS84, ETRS89 and ITRF)
