@@ -207,7 +207,7 @@ Newly added functions:
 Imports a mini label from a foreign srs metadata description like e.g. EPSG code, (ESRI) wkt or Proj4 syntax. Example:
 {{{
 #!c
-ok=TR_ImportLabel("EPSG:4326",mlb);
+ok=TR_ImportLabel("EPSG:4326",mlb,128);
 }}}  
 should copy "geo_wgs84" into mlb. Returns TR_OK on success.
 
