@@ -30,7 +30,7 @@ A makefile for linux (gcc) has been added to the root directory. Alternatively y
 # You can also specify the target compiler suite by using the -G switch: cmake -G <generator> ../trlib 
 === Mini Labels ===
 
-(KMS)TrLib uses the (famous) mini label system for specification of projection/reference system metadata. See the [[mini labels|MiniLabels page]] for an introduction. We plan to implement translation procedures between MiniLabels and other, more widespread, metadata systems such as ogc-wkt and EPGS-codes. A translation from MiniLabels to ESRI-flavoured wkt is already implemented in the core and exposed in the python bindings.
+(KMS)TrLib uses the (famous) mini label system for specification of projection/reference system metadata. See the [[mini labels|MiniLabels page]] for an introduction. We plan to implement translation procedures between MiniLabels and other, more widespread, metadata systems such as ogc-wkt and EPSG-codes. A translation from MiniLabels to ESRI-flavoured wkt is already implemented in the core and exposed in the python bindings.
 
 === Supported systems ===
 
