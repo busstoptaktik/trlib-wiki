@@ -329,8 +329,8 @@ The character '@' at the start of some descriptions marks that this datum is onl
 
 |=Vertical Datum|=Description|=Ellipsoid|
 |dvr90|@ Danish Vertical Ref Frame 1990|GRS80|
-|evrf2000|@ Eropean Vertical Ref Frame 2000|GRS80|
-|evrf2007|@ Eropean Vertical Ref Frame 2007|GRS80|
+|evrf2000|@ European Vertical Ref Frame 2000|GRS80|
+|evrf2007|@ European Vertical Ref Frame 2007|GRS80|
 |fvr09|@ Faroe Vertical Ref Frame 2009|GRS80|
 |msl|@ Mean Sea Level Frame|GRS80|
 |fscvr10|@ Fehmarn Vertical Reference 2010|GRS80|
