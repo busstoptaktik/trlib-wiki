@@ -464,7 +464,7 @@ A major difference between the two APIs is that the transformation functions can
  * Compilation:
  * gcc -I ../../trlib/TR_INC/ -L<path/to/lib> -o trlib_hello trlib_hello.c -lTrLib.dll && trlib_hello
  * 
- * Thomas Knudsen, thokn@kms.dk, 2013-06-07
+ * Thomas Knudsen, thokn@gst.dk, 2013-06-07
  * 
  */
 
