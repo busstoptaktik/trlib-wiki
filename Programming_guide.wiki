@@ -462,7 +462,7 @@ A major difference between the two APIs is that the transformation functions can
  * Additionally, shows how to update TR using the TR_Insert (label) function.
  * 
  * Compilation:
- * gcc -I ../../trlib/TR_INC/ -L<path/to/lib> -o trlib_hello trlib_hello.c -lTrLib.dll && trlib_hello
+ * gcc -I</path/to/trlib_api.h> -L</path/to/lib> -o trlib_hello trlib_hello.c -lTrLib.dll && trlib_hello
  * 
  * Thomas Knudsen, thokn@gst.dk, 2013-06-07
  * 
