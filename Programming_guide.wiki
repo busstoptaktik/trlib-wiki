@@ -548,7 +548,7 @@ int main (void) {
      * Projection:     None (geographical coordinates),
      * Datum:          ETRS89
      * Heights:        Ellipsoidal
-     * Vertical Datum: DVR90 (Danish Vertical Reference, 1990)
+     * Vertical Datum: None (ellipsoidal, ETRS89)
      *
      */ 
     ret = TR_Insert (tr, "geoEetrs89", 0);
