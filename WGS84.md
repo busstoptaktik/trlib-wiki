@@ -5,7 +5,7 @@ When using coordinates it is crucial to know the GPS observation method and whic
 
 
 
-**What is WGS84 in KMSTrans2?**
+**What is WGS84 in trlib and KMSTrans2?**
 
 In former versions of KMSTrans it was stated that WGS84 ≈ ETRS89. In the new version we want to elaborate on this statement, because as time goes by it is not quite true anymore. The fact is that the definition of WGS84 has changed during time. When ETRS89 was defined it was reasonable to say that WGS84 ≈ ETRS89, but since then the definition of WGS84 has been adjusted several times, so now WGS84 is much closer to the current ITRF than to ETRS89.
 
