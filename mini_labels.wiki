@@ -385,7 +385,7 @@ Dansk TM zone 1, Ellipsoidal Heights.
 
 dktm2: 
 
-Dansk TM zone 1, No Heights. The '_' character may be omitted in the 'P.D.' systems. 
+Dansk TM zone 2, No Heights. The '_' character may be omitted in the 'P.D.' systems. 
 
 crt_etrs89: 
 
