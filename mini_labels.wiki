@@ -131,7 +131,7 @@ The last column in the table below indicates what the expected coordinate order 
 |crt| |Cartesian 3-d coord| (X,Y,Z) |
 |geo| |Geographical coord | (Lat, Lon)|
 |geoi| |Geographical coord |(Lon, Lat) |
-|utm**| |UTM zone ?? (?? = 2 digits)  | (N,E) |
+|utm??| |UTM zone ?? (?? = 2 digits)  | (N,E) |
 |utmi??| |UTM zone ?? (?? = 2 digits)  |(E,N) |
 |utm??n| |UTM zone ??, North. LAT |(N,E) |
 |utmi??n| |UTM zone ??, North. LAT |(E,N) |
